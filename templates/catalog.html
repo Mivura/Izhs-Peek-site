@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Каталог проектов — ПИК{% endblock %}
+{% block styles %}
+{{ super()}}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/catalog.css') }}">
+{% endblock %}
+{% block content %}
+
+<section class="catalog-section">
+  <div class="container">
+    <h1 class="catalog-title">Каталог домов</h1>
+    <p class="catalog-subtitle">
+      Выберите проект, который подойдёт именно вам.
+      Мы строим дома из профилированного бруса, газобетона и каркаса.
+    </p>
+
+    <div class="catalog-grid">
+      {% for house in houses %}
+      <div class="catalog-card">
+        <img src="{{ url_for('static', filename='img/' + house.image) }}" alt="{{ house.name }}">
+        <div class="card-content">
+          <h2>{{ house.name }}</h2>
+          <p>{{ house.description }}</p>
+          <a href="{{ url_for('project_detail', house_id=house.id) }}" class="btn">Подробнее</a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}
