@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <!--    <link rel="stylesheet"  href="{{ url_for('static', filename='style.css')}}">-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!--    <link rel="stylesheet" href="/static/style.css">-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styleForZaya.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/logo_str.png') }}">
+
+    <title>ООО «ПИК»</title>
+
+
+</head>
+<!--</head>-->
+<body>
+
+    {% block content %}
+    <style>
+        content{
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .form-container {
+            max-width: 800px;
+
+            margin: 40px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #2c3e50;
+        }
+
+        .required::after {
+            content: " *";
+            color: #e74c3c;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: border 0.3s, box-shadow 0.3s;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            border-color: #3498db;
+            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+            outline: none;
+        }
+
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+        }
+
+        .submit-btn:hover {
+            background-color: #2980b9;
+        }
+
+        .alert {
+            padding: 12px 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .alert-success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .alert-error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .optional-note {
+            font-size: 14px;
+            color: #6c757d;
+            margin-top: 5px;
+        }
+    </style>
+    <div class="form-container">
+        <h1>Оставить заявку</h1>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <form method="POST" id="applicationForm">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+            <div class="form-group">
+                <label for="name" class="required">Имя</label>
+                <input type="text" id="name" name="name" required value="{{ request.form.name if request.form.name }}">
+            </div>
+
+            <div class="form-group">
+                <label for="phone" class="required">Телефон</label>
+                <input type="tel" id="phone" name="phone" required value="{{ request.form.phone if request.form.phone }}">
+            </div>
+
+            <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" value="{{ request.form.email if request.form.email }}">
+                <div class="optional-note">Необязательное поле</div>
+            </div>
+
+            <div class="form-group">
+                <label for="project">Название проекта</label>
+                <input type="text" id="project" name="project" value="{{ request.form.project if request.form.project }}">
+                <div class="optional-note">Необязательное поле</div>
+            </div>
+
+            <div class="form-group">
+                <label for="region">Регион строительства</label>
+                <input type="text" id="region" name="region" value="{{ request.form.region if request.form.region }}">
+                <div class="optional-note">Необязательное поле</div>
+            </div>
+
+            <div class="form-group">
+                <label for="comment">Комментарий</label>
+                <textarea id="comment" name="comment" rows="4">{{ request.form.comment if request.form.comment }}</textarea>
+                <div class="optional-note">Необязательное поле</div>
+            </div>
+
+            <!-- УБРАЛИ ПРИКРЕПЛЕНИЕ ФАЙЛОВ, КАПЧУ И СОГЛАШЕНИЕ -->
+
+            <button type="submit" class="submit-btn">Отправить заявку</button>
+        </form>
+
+        <a href="{{ url_for('home') }}" class="back-link">← Вернуться на главную</a>
+    </div>
+
+    <script>
+        // Простая JavaScript валидация
+        document.getElementById('applicationForm').addEventListener('submit', function(e) {
+            console.log('Форма отправляется...');
+
+            const name = document.getElementById('name').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+
+            let hasError = false;
+
+            if (!name) {
+                alert('Пожалуйста, введите ваше имя.');
+                document.getElementById('name').focus();
+                hasError = true;
+            } else if (!phone) {
+                alert('Пожалуйста, введите ваш телефон.');
+                document.getElementById('phone').focus();
+                hasError = true;
+            }
+
+            if (hasError) {
+                e.preventDefault();
+                return false;
+            }
+
+            console.log('Все проверки пройдены, форма отправляется');
+            return true;
+        });
+    </script>
+    {% endblock %}
+
+</body>
+
+</html>
