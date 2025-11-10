@@ -1,0 +1,87 @@
+.photo_dom img{
+    width: 100%;
+    padding-left: 10px;
+}
+.material_house{
+    text-align: center;
+    font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+    color: #3F5E7B;
+    font-size: 18px;
+    width: 80%;
+    margin: auto;
+}
+.material_house h1{
+    font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+
+}
+.info_menu {
+    width: 40%;
+    float: right;
+    height: auto;
+    /*background-color: #3F5E7B;*/
+    display: inline-block;
+    /*flex-direction: row;*/
+    /*flex-wrap: wrap;*/
+    /*background-color: #3F5E7B;*/
+}
+
+.photo_dom {
+    width: 60%;
+    height: auto;
+    /*float: left;*/
+    display: inline-block;
+    /*flex-direction: row;*/
+    /*flex-wrap: wrap;*/
+}
+.photo_dom h1{
+    padding-top: 40px;
+    /*font: inherit;*/
+    font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+    font-size: 35px;
+    padding-left: 40px;
+    color: #3F5E7B;
+}
+.photo_dom p{
+    /*font: inherit;*/
+    font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+    vertical-align: baseline;
+    text-align: justify;
+    padding-left: 40px;
+    padding-top: 40px;
+    font-size: 23px;
+
+}
+.info_cost{
+    width: 100%;
+    height: 60px;
+    /*background-color: #ebf2f7;*/
+    display: inline-block;
+    /*float: left;*/
+    margin: auto;
+    margin-top: 40px;
+    padding-left: 20px;
+    /*display: flex;*/
+    /*position: relative;*/
+    /*margin: 0 20px;*/
+}
+.info_cost p {
+    font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+
+    margin-bottom: 10px;
+    margin: auto;
+    text-align: left;
+    vertical-align: top;
+    font-size: 20px;
+}
+.info_cost h2{
+    margin-top: 10px;
+    vertical-align: bottom;
+    font-family: 'PTSans-Narrow';
+
+    text-align: center;
+    width: 40%;
+    color: white;
+    background: #458db5;
+
+
+}
