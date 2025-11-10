@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/house.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styleForZaya.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/logo_str.png') }}">
+    <title>{{ house_name }} - ООО «ПИК»</title>
+</head>
+
+<body>
+{% block content %}
+<div class="HeaderContent">
+    <h1 class="nazv_doma">{{ house_name }}</h1>
+    <img src="{{ url_for('static', filename='img/' + house_folder + '/1.jpg') }}" alt="{{ house_name }}">
+</div>
+
+<content>
+    <div class="content_all">
+        <!-- Характеристики и планировка -->
+        <div class="container-settings">
+            <div class="main-content">
+                <section class="characteristics">
+                    <h1>ХАРАКТЕРИСТИКИ</h1>
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <strong>Общая площадь дома:</strong>
+                            <span>{{ specs.total_area }} м²</span>
+                        </div>
+                        <div class="spec-item">
+                            <strong>Жилая площадь дома:</strong>
+                            <span>{{ specs.living_area }} м²</span>
+                        </div>
+                        <div class="spec-item">
+                            <strong>Площадь террасы:</strong>
+                            <span>{{ specs.terrace_area }} м²</span>
+                        </div>
+                        <div class="spec-item">
+                            <strong>Кол-во этажей:</strong>
+                            <span>{{ specs.floors }}</span>
+                        </div>
+                        <div class="spec-item">
+                            <strong>Кол-во спален:</strong>
+                            <span>{{ specs.bedrooms }}</span>
+                        </div>
+                        <div class="spec-item">
+                            <strong>Кол-во санузлов:</strong>
+                            <span>{{ specs.bathrooms }}</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="layout-section">
+                    <h2 class="layout-title">Планировка</h2>
+                    
+                    {% if floor_plans|length > 1 %}
+                    <!-- Слайдер планировок для домов с несколькими этажами -->
+                    <div class="house-floors">
+                        {% for plan in floor_plans %}
+                        <div class="floor-plan {% if loop.first %}active{% endif %}">
+                            <img src="{{ url_for('static', filename='img/' + house_folder + '/' + plan) }}" alt="Этаж {{ loop.index }}">
+                        </div>
+                        {% endfor %}
+
+                        <button class="floor-prev">←</button>
+                        <button class="floor-next">→</button>
+
+                        <div class="floor-indicators">
+                            {% for plan in floor_plans %}
+                            <span class="floor-dot {% if loop.first %}active{% endif %}" data-floor="{{ loop.index0 }}"></span>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% else %}
+                    <!-- Одна планировка -->
+                    <img src="{{ url_for('static', filename='img/' + house_folder + '/' + floor_plans[0]) }}" alt="План дома" class="layout-image">
+                    {% endif %}
+
+                    <div class="manager-info">
+                        <div class="manager-name">АЛЕКСАНДР</div>
+                        <div class="manager-position">Менеджер</div>
+                        <p style="margin-bottom: 15px; color: #555;">
+                            Хотите построить или перепроектировать проект под себя? Запишитесь на консультацию.
+                        </p>
+                        <a href="/contact" class="cta-button">ОСТАВИТЬ ЗАЯВКУ</a>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- Таблица с комплектацией -->
+        <div class="complectation-container">
+            <h1 class="complectation-title">КОМПЛЕКТАЦИИ ДОМА</h1>
+
+            <table class="complectation-table">
+                <thead>
+                <tr>
+                    <th>Характеристики</th>
+                    <th>Теплый контур</th>
+                    <th>Инженерный пакет</th>
+                    <th>Чистовая отделка</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for feature in features %}
+                <tr>
+                    <td>
+                        <div class="feature-name">{{ feature.name }}</div>
+                        <div class="feature-details">{{ feature.details }}</div>
+                    </td>
+                    <td class="checkmark">{% if feature.warm %}✓{% endif %}</td>
+                    <td class="checkmark">{% if feature.engineering %}✓{% endif %}</td>
+                    <td class="checkmark">{% if feature.finishing %}✓{% endif %}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+            <div class="pricing-section">
+                <div class="price-item">
+                    <div class="price-amount">от {{ "{:,}".format(prices.warm).replace(',', ' ') }} руб.</div>
+                    <div class="price-label">Теплый контур</div>
+                </div>
+                <div class="price-item">
+                    <div class="price-amount">от {{ "{:,}".format(prices.engineering).replace(',', ' ') }} руб.</div>
+                    <div class="price-label">Инженерный пакет</div>
+                </div>
+                <div class="price-item">
+                    <div class="price-amount">от {{ "{:,}".format(prices.finishing).replace(',', ' ') }} руб.</div>
+                    <div class="price-label">Чистовая отделка</div>
+                </div>
+                <a href="/contact" class="fix-price-btn">ЗАФИКСИРОВАТЬ СТОИМОСТЬ</a>
+            </div>
+
+            <p class="note">* Стоимость указана ориентировочно. Точная цена рассчитывается индивидуально после консультации.</p>
+        </div>
+
+        <!-- Слайдер фото -->
+        <div class="slider-container">
+            <div class="slider">
+                <div class="slides">
+                    {% for photo in photos %}
+                    <div class="slide">
+                        <img src="{{ url_for('static', filename='img/' + house_folder + photo) }}"
+                             alt="Фото {{ loop.index }}">
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <button class="nav-btn prev-btn">&lt;</button>
+                <button class="nav-btn next-btn">&gt;</button>
+
+                <div class="dots">
+                    {% for photo in photos %}
+                    <span class="dot {% if loop.first %}active{% endif %}" data-slide="{{ loop.index0 }}"></span>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <!-- Калькулятор -->
+        <div class="calculator">
+            <h1>КАЛЬКУЛЯТОР СТРОИТЕЛЬСТВА ДОМА</h1>
+
+            <div class="configuration-section">
+                <div class="configuration-title">ВЫБЕРИТЕ КОМПЛЕКТАЦИЮ</div>
+                <div class="configuration-options">
+                    {% for config in configurations %}
+                    <div class="config-option" data-price="{{ config.price }}">
+                        <div class="config-name">{{ config.name }}</div>
+                        <div class="config-description">{{ config.description }}</div>
+                        <div class="config-price">{{ "{:,}".format(config.price).replace(',', ' ') }} ₽</div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="fixed-total-section">
+                <div class="config-summary">
+                    <span>Комплектация: </span>
+                    <span class="config-summary-name" id="config-summary-name">{{ configurations[1].name if configurations|length > 1 else configurations[0].name }}</span>
+                </div>
+                <div class="fixed-total-amount" id="fixed-total-display">{{ "{:,}".format(configurations[1].price if configurations|length > 1 else configurations[0].price).replace(',', ' ') }} ₽</div>
+            </div>
+
+            <form id="services-form" method="POST" action="/submit">
+                <input type="hidden" name="total_amount" id="total_amount" value="{{ configurations[1].price if configurations|length > 1 else configurations[0].price }}">
+                <input type="hidden" name="selected_config" id="selected_config" value="{{ configurations[1].name if configurations|length > 1 else configurations[0].name }}">
+
+                <h2 class="services-title">ДОПОЛНИТЕЛЬНЫЕ УСЛУГИ</h2>
+
+                <div class="services-list">
+                    {% for service in services %}
+                    <div class="service-item" data-price="{{ service.price }}">
+                        <input type="checkbox" name="services" value="{{ service.name }}" class="service-checkbox" id="service{{ loop.index }}">
+                        <div class="service-info">
+                            <div class="service-title">{{ service.name }}</div>
+                            {% if service.description %}
+                            <div class="service-description">{{ service.description }}</div>
+                            {% endif %}
+                            <div class="service-price">{{ "{:,}".format(service.price).replace(',', ' ') }} ₽</div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <button type="button" class="submit-btn" onclick="window.location.href='{{ url_for('contact') }}'">ОТПРАВИТЬ ЗАЯВКУ</button>
+            </form>
+        </div>
+    </div>
+</content>
+
+<script src="{{ url_for('static', filename='js/house.js') }}"></script>
+{% endblock %}
+</body>
+</html>

@@ -17,6 +17,9 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, TextAreaField
 from wtforms.validators import DataRequired, Email
 
+# Import house data configuration
+from house_data import HOUSES
+
 global_houses_kark = ["dom" + str(i) + "_kark/house_1.html" for i in range(1, 5)]
 global_houses_brus = ["dom" + str(i) + "_brus/house_1.html" for i in range(1, 5)]
 app = Flask(__name__)
@@ -269,59 +272,77 @@ def project_detail(house_id):
 
 @app.route('/house1')
 def house_kark_1():
-    photos = [
-        '/1.jpg',
-        '/2.jpg',
-        '/3.jpg',
-        '/4.jpg',
-    ]
-
-    return render_template("dom1_kark/house_1.html", photos=photos)
+    house_data = HOUSES.get('dom1_kark')
+    return render_template("house_template.html", 
+                          house_name=house_data['name'],
+                          house_folder=house_data['folder'],
+                          specs=house_data['specs'],
+                          floor_plans=house_data['floor_plans'],
+                          photos=house_data['photos'],
+                          features=house_data['features'],
+                          prices=house_data['prices'],
+                          configurations=house_data['configurations'],
+                          services=house_data['services'])
 
 
 @app.route('/house2')
 def house_kark_2():
-    photos = [
-        '/1.jpg',
-        '/2.jpg',
-        '/3.jpg',
-    ]
-
-    return render_template("dom2_kark/house_1.html", photos=photos)
+    house_data = HOUSES.get('dom2_kark')
+    return render_template("house_template.html", 
+                          house_name=house_data['name'],
+                          house_folder=house_data['folder'],
+                          specs=house_data['specs'],
+                          floor_plans=house_data['floor_plans'],
+                          photos=house_data['photos'],
+                          features=house_data['features'],
+                          prices=house_data['prices'],
+                          configurations=house_data['configurations'],
+                          services=house_data['services'])
 
 
 @app.route('/house3')
 def house_kark_3():
-    photos = [
-        '/1.jpg',
-        '/2.jpg',
-        '/3.jpg'
-    ]
-
-    return render_template("dom3_kark/house_1.html", photos=photos)
+    house_data = HOUSES.get('dom3_kark')
+    return render_template("house_template.html", 
+                          house_name=house_data['name'],
+                          house_folder=house_data['folder'],
+                          specs=house_data['specs'],
+                          floor_plans=house_data['floor_plans'],
+                          photos=house_data['photos'],
+                          features=house_data['features'],
+                          prices=house_data['prices'],
+                          configurations=house_data['configurations'],
+                          services=house_data['services'])
 
 
 @app.route('/house4')
 def house_kark_4():
-    photos = [
-        '/1.jpg',
-        '/2.jpg',
-        '/3.jpg'
-    ]
-
-    return render_template("dom4_kark/house_1.html", photos=photos)
+    house_data = HOUSES.get('dom4_kark')
+    return render_template("house_template.html", 
+                          house_name=house_data['name'],
+                          house_folder=house_data['folder'],
+                          specs=house_data['specs'],
+                          floor_plans=house_data['floor_plans'],
+                          photos=house_data['photos'],
+                          features=house_data['features'],
+                          prices=house_data['prices'],
+                          configurations=house_data['configurations'],
+                          services=house_data['services'])
 
 
 @app.route('/house5')
 def house_kark_5():
-    photos = [
-        '/1.jpg',
-        '/2.jpg',
-        '/3.jpg',
-        '/4.jpg'
-    ]
-
-    return render_template("dom5_kark/house_1.html", photos=photos)
+    house_data = HOUSES.get('dom5_kark')
+    return render_template("house_template.html", 
+                          house_name=house_data['name'],
+                          house_folder=house_data['folder'],
+                          specs=house_data['specs'],
+                          floor_plans=house_data['floor_plans'],
+                          photos=house_data['photos'],
+                          features=house_data['features'],
+                          prices=house_data['prices'],
+                          configurations=house_data['configurations'],
+                          services=house_data['services'])
 
 
 if __name__ == '__main__':

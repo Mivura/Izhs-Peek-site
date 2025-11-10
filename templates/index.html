@@ -36,27 +36,7 @@
         </div>
     </div>
 
-    <script>
-        const slides = document.querySelectorAll('.baltic-slide');
-        let index = 0;
-
-        function activateSlide(i) {
-            slides.forEach(slide => slide.classList.remove('active'));
-            slides[i].classList.add('active');
-        }
-
-        slides.forEach((slide, i) => {
-            slide.addEventListener('mouseenter', () => {
-                activateSlide(i);
-                index = i;
-            });
-        });
-
-        setInterval(() => {
-            index = (index + 1) % slides.length;
-            activateSlide(index);
-        }, 4000);
-    </script>
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
 
     <div class="baltic-catalog">
         <h2 class="baltic-catalog-title">КАТАЛОГ ПРОЕКТОВ</h2>
