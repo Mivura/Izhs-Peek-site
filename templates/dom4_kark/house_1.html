@@ -832,6 +832,51 @@
             border-bottom: 1px solid #e0e0e0;
             padding-bottom: 10px;
         }
+
+        /* Адаптивность для мобильных устройств */
+        @media (max-width: 768px) {
+            .fixed-total-section {
+                width: 100%;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                margin: 0;
+                padding: 15px 10px;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .config-summary {
+                font-size: 0.95em;
+                text-align: center;
+                width: 100%;
+            }
+
+            .fixed-total-amount {
+                font-size: 1.5em;
+                text-align: center;
+                width: 100%;
+            }
+
+            .submit-btn {
+                width: 100%;
+                padding: 12px 20px;
+                font-size: 1em;
+            }
+
+            .calculator {
+                padding: 20px 10px;
+                margin-bottom: 120px; /* Добавляем отступ снизу для фиксированного блока */
+            }
+
+            .config-option {
+                min-width: 100%;
+            }
+
+            .service-item {
+                padding: 10px;
+            }
+        }
     </style>
     <div class="calculator">
         <h1>КАЛЬКУЛЯТОР СТРОИТЕЛЬСТВА ДОМА</h1>
