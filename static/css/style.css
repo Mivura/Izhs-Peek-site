@@ -585,70 +585,103 @@ header label {
     padding-top: 120px;
     position: relative;
     z-index: 1;
-    /*background-color: #f8f5f2;*/
+    background-color: #f9f9f9;
     padding: 80px 20px;
-    text-align: left;
+    text-align: center;
 }
 
 .baltic-catalog-title {
     font-family: 'Playfair Display', serif;
-    font-size: 50px;
+    font-size: 42px;
     font-weight: 700;
     color: #2b2b2b;
     margin-bottom: 10px;
+    text-align: center;
 }
 
 .baltic-catalog-subtitle {
-    font-size: 18px;
-    color: #555;
-    margin-bottom: 60px;
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 50px;
+    text-align: center;
 }
 
 .baltic-projects-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 40px;
+    gap: 30px;
     max-width: 1200px;
     margin: 0 auto;
 }
 
 .baltic-project-card {
     background: #fff;
-    border-radius: 6px;
+    border-radius: 0;
     overflow: hidden;
-    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    text-decoration: none;
+    display: block;
 }
 
 .baltic-project-card:hover {
-    transform: translateY(-6px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    transform: translateY(-3px);
+}
+
+.baltic-project-card a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
 }
 
 .baltic-project-image {
     position: relative;
     width: 100%;
-    height: 320px;
+    height: 350px;
     background-size: cover;
     background-position: center;
+    overflow: hidden;
+}
+
+.baltic-project-image::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
 }
 
 .baltic-project-name {
     position: absolute;
-    bottom: 15px;
-    left: 20px;
-    font-family: 'Playfair Display', serif;
-    font-size: 26px;
+    bottom: 20px;
+    left: 25px;
+    font-family: 'Arial', sans-serif;
+    font-size: 22px;
     font-weight: 700;
     color: white;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    z-index: 2;
 }
 
 .baltic-project-info {
-    padding: 20px;
-    font-size: 16px;
-    color: #333;
-    line-height: 1.6;
+    padding: 20px 25px;
+    font-size: 14px;
+    color: #555;
+    line-height: 1.8;
     text-align: left;
+    background: #fff;
+}
+
+.baltic-project-info div {
+    margin-bottom: 8px;
+}
+
+.baltic-project-info strong {
+    color: #333;
+    font-weight: 600;
 }
 
 /* === Адаптив === */
