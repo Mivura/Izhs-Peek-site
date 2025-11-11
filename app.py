@@ -21,7 +21,11 @@ from wtforms.validators import DataRequired, Email
 # ===========================Загрузка данных о домах из JSON=============================================
 def load_houses_data():
     """Загрузка данных о домах из JSON файла"""
-    with open('houses_data.json', 'r', encoding='utf-8') as f:
+    # Получаем абсолютный путь к директории, где находится app.py
+    basedir = os.path.abspath(os.path.dirname(__file__))
+    json_path = os.path.join(basedir, 'houses_data.json')
+    
+    with open(json_path, 'r', encoding='utf-8') as f:
         data = json.load(f)
     return data['houses']
 
