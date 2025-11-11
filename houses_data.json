@@ -3,7 +3,7 @@
     {
       "id": 1,
       "name": "Название 0",
-      "route": "house1",
+      "route": "house_kark_1",
       "template": "dom1_kark/house_1.html",
       "image_folder": "dom1_kark",
       "main_image": "dom1_kark/1.jpg",
@@ -40,7 +40,7 @@
     {
       "id": 2,
       "name": "Название 1",
-      "route": "house2",
+      "route": "house_kark_2",
       "template": "dom2_kark/house_1.html",
       "image_folder": "dom2_kark",
       "main_image": "dom2_kark/1.jpg",
@@ -72,7 +72,7 @@
     {
       "id": 3,
       "name": "название 2",
-      "route": "house3",
+      "route": "house_kark_3",
       "template": "dom3_kark/house_1.html",
       "image_folder": "dom3_kark",
       "main_image": "dom3_kark/1.jpg",
@@ -104,7 +104,7 @@
     {
       "id": 4,
       "name": "Назавние 3",
-      "route": "house4",
+      "route": "house_kark_4",
       "template": "dom4_kark/house_1.html",
       "image_folder": "dom4_kark",
       "main_image": "dom4_kark/1.jpg",
@@ -136,7 +136,7 @@
     {
       "id": 5,
       "name": "Название 4",
-      "route": "house5",
+      "route": "house_kark_5",
       "template": "dom5_kark/house_1.html",
       "image_folder": "dom5_kark",
       "main_image": "dom5_kark/1.jpg",

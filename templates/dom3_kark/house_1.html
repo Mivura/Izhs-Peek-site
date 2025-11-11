@@ -469,129 +469,152 @@
         </div>
 
 
-        <!--        =================================Слайдеры фото=================================-->
+                <!--        =================================Улучшенный слайдер фото с Swiper.js=================================-->
         <style>
-            .slider-container {
-                /*max-width: 1000px;*/
-                margin: 0 auto;
+            /* Стили для Swiper слайдера */
+            .photo-slider-container {
+                max-width: 1000px;
+                margin: 40px auto;
                 padding: 20px;
-                height: auto;
             }
 
-            .slider {
-                position: relative;
-                overflow: hidden;
+            .swiper {
+                width: 100%;
                 border-radius: 10px;
                 box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
             }
 
-            .slides {
-                display: flex;
-                transition: transform 0.3s ease-in-out;
-            }
-
-            .slide {
-                min-width: 100%;
-                /*height: 700px;*/
-                width: auto;
-                height: auto;
-            }
-
-            .slide img {
+            .swiper-slide img {
                 width: 100%;
-                height: 100%;
+                height: 500px;
                 object-fit: cover;
                 display: block;
             }
 
-            .nav-btn {
-                position: absolute;
-                top: 50%;
-                transform: translateY(-50%);
-                background: rgba(255, 255, 255, 0.8);
-                border: none;
+            /* Кастомные стили для навигации */
+            .swiper-button-next,
+            .swiper-button-prev {
+                color: #fff;
+                background: rgba(0, 0, 0, 0.5);
                 width: 50px;
                 height: 50px;
                 border-radius: 50%;
-                font-size: 18px;
-                cursor: pointer;
-                transition: background 0.3s;
-                z-index: 10;
             }
 
-            .nav-btn:hover {
-                background: rgba(255, 255, 255, 0.95);
+            .swiper-button-next:after,
+            .swiper-button-prev:after {
+                font-size: 20px;
             }
 
-            .prev-btn {
-                left: 10px;
-            }
-
-            .next-btn {
-                right: 10px;
-            }
-
-            .dots {
-                display: flex;
-                justify-content: center;
-                gap: 10px;
-                margin-top: 15px;
-            }
-
-            .dot {
+            .swiper-pagination-bullet {
                 width: 12px;
                 height: 12px;
-                border-radius: 50%;
-                background: rgba(255, 255, 255, 0.5);
-                cursor: pointer;
-                transition: background 0.3s;
-            }
-
-            .dot.active {
                 background: #fff;
+                opacity: 0.7;
             }
 
-            /* Адаптивность */
+            .swiper-pagination-bullet-active {
+                opacity: 1;
+                background: #3498db;
+            }
+
+            /* Адаптивность для мобильных */
             @media (max-width: 768px) {
-                .slide {
-                    height: 300px;
+                .swiper-slide img {
+                    height: 350px;
                 }
 
-                .nav-btn {
+                .swiper-button-next,
+                .swiper-button-prev {
                     width: 40px;
                     height: 40px;
+                }
+
+                .swiper-button-next:after,
+                .swiper-button-prev:after {
                     font-size: 16px;
                 }
             }
+
+            @media (max-width: 480px) {
+                .swiper-slide img {
+                    height: 250px;
+                }
+
+                .photo-slider-container {
+                    padding: 15px;
+                }
+            }
         </style>
-        <div class="slider-container">
-            <div class="slider">
-                <div class="slides">
+
+        <div class="photo-slider-container">
+            <div class="swiper photoSwiper">
+                <div class="swiper-wrapper">
                     {% for photo in photos %}
-                    <div class="slide">
+                    <div class="swiper-slide">
                         <img src="{{ url_for('static', filename='img/dom3_kark' + photo) }}"
                              alt="Фото {{ loop.index }}">
                     </div>
                     {% endfor %}
                 </div>
-
+                
                 <!-- Навигация -->
-                <button class="nav-btn prev-btn">&lt;</button>
-                <button class="nav-btn next-btn">&gt;</button>
-
-                <!-- Точки индикаторы -->
-                <div class="dots">
-                    {% for photo in photos %}
-                    <span class="dot" data-slide="{{ loop.index0 }}"></span>
-                    {% endfor %}
-                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                
+                <!-- Пагинация -->
+                <div class="swiper-pagination"></div>
             </div>
         </div>
 
-        <script src="{{ url_for('static', filename='js/slider.js') }}"></script>
+        <!-- Инициализация Swiper -->
+        <script>
+            // Инициализация Swiper слайдера для фотографий
+            document.addEventListener('DOMContentLoaded', function() {
+                const photoSwiper = new Swiper('.photoSwiper', {
+                    // Параметры слайдера
+                    loop: true,
+                    speed: 600,
+                    spaceBetween: 30,
+                    
+                    // Автопрокрутка
+                    autoplay: {
+                        delay: 4000,
+                        disableOnInteraction: false,
+                    },
+                    
+                    // Навигация
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    },
+                    
+                    // Пагинация
+                    pagination: {
+                        el: '.swiper-pagination',
+                        clickable: true,
+                    },
+                    
+                    // Поддержка касаний
+                    touchRatio: 1,
+                    touchAngle: 45,
+                    grabCursor: true,
+                    
+                    // Эффекты
+                    effect: 'slide',
+                    
+                    // Клавиатура
+                    keyboard: {
+                        enabled: true,
+                        onlyInViewport: true,
+                    },
+                });
+            });
+        </script>
 
 
         <!--        ==================================================================-->
+
 
     <!--    Часть с калькулятором + style-->
 
