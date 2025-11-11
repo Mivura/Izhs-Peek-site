@@ -5,6 +5,7 @@ from email.mime.text import MIMEText
 import smtplib
 import os
 import secrets
+import json
 
 
 from flask_wtf import FlaskForm
@@ -16,6 +17,13 @@ from werkzeug.utils import secure_filename
 from flask_wtf import FlaskForm
 from wtforms import StringField, TextAreaField
 from wtforms.validators import DataRequired, Email
+
+# ===========================Загрузка данных о домах из JSON=============================================
+def load_houses_data():
+    """Загрузка данных о домах из JSON файла"""
+    with open('houses_data.json', 'r', encoding='utf-8') as f:
+        data = json.load(f)
+    return data['houses']
 
 global_houses_kark = ["dom" + str(i) + "_kark/house_1.html" for i in range(1, 5)]
 global_houses_brus = ["dom" + str(i) + "_brus/house_1.html" for i in range(1, 5)]
@@ -55,7 +63,9 @@ if not os.path.exists(app.config['UPLOAD_FOLDER']):
 @app.route('/index')
 @app.route('/welcome')
 def home():
-    return render_template('index.html')
+    """Главная страница с динамической загрузкой проектов"""
+    houses = load_houses_data()
+    return render_template('index.html', houses=houses)
 
 
 print()
@@ -246,22 +256,18 @@ def AboutUs():
 
 @app.route("/catalog")
 def catalog():
-    houses = [
-        {"id": 1, "name": "Дом 0", "image": "dom1_kark/1.jpg", "description": "Современный дом из бруса с просторной террасой."},
-        {"id": 2, "name": "Дом 1", "image": "dom2_kark/1.jpg", "description": "Уютный каркасный дом для круглогодичного проживания."},
-        {"id": 3, "name": "Дом 2", "image": "dom3_kark/1.jpg", "description": "Классический проект из газобетона с мансардой."},
-        {"id": 4, "name": "Дом 3", "image": "dom4_kark/1.jpg", "description": "Классический проект из газобетона с мансардой."},
-        {"id": 5, "name": "Дом 4", "image": "dom5_kark/1.jpg", "description": "Классический проект из газобетона с мансардой."},
-        {"id": 6, "name": "Дом 4", "image": "dom6_kark/1.jpg", "description": "Классический проект из газобетона с мансардой."},
-    ]
+    """Каталог домов с динамической загрузкой из JSON"""
+    houses = load_houses_data()
     return render_template("catalog.html", houses=houses)
 
 @app.route("/catalog/<int:house_id>")
 def project_detail(house_id):
-    # здесь можно подгрузить конкретный проект из БД
-    return redirect(url_for('house_kark_' + str(house_id)))
-
-    # return render_template("project_detail.html", house_id=house_id)
+    """Перенаправление на детальную страницу дома"""
+    houses = load_houses_data()
+    house = next((h for h in houses if h['id'] == house_id), None)
+    if house:
+        return redirect(url_for(house['route']))
+    return redirect(url_for('catalog'))
 
 
 
@@ -269,59 +275,47 @@ def project_detail(house_id):
 
 @app.route('/house1')
 def house_kark_1():
-    photos = [
-        '/1.jpg',
-        '/2.jpg',
-        '/3.jpg',
-        '/4.jpg',
-    ]
-
-    return render_template("dom1_kark/house_1.html", photos=photos)
+    """Страница дома 1 с динамической загрузкой данных"""
+    houses = load_houses_data()
+    house = next((h for h in houses if h['id'] == 1), None)
+    photos = house['photos'] if house else []
+    return render_template("dom1_kark/house_1.html", photos=photos, house=house)
 
 
 @app.route('/house2')
 def house_kark_2():
-    photos = [
-        '/1.jpg',
-        '/2.jpg',
-        '/3.jpg',
-    ]
-
-    return render_template("dom2_kark/house_1.html", photos=photos)
+    """Страница дома 2 с динамической загрузкой данных"""
+    houses = load_houses_data()
+    house = next((h for h in houses if h['id'] == 2), None)
+    photos = house['photos'] if house else []
+    return render_template("dom2_kark/house_1.html", photos=photos, house=house)
 
 
 @app.route('/house3')
 def house_kark_3():
-    photos = [
-        '/1.jpg',
-        '/2.jpg',
-        '/3.jpg'
-    ]
-
-    return render_template("dom3_kark/house_1.html", photos=photos)
+    """Страница дома 3 с динамической загрузкой данных"""
+    houses = load_houses_data()
+    house = next((h for h in houses if h['id'] == 3), None)
+    photos = house['photos'] if house else []
+    return render_template("dom3_kark/house_1.html", photos=photos, house=house)
 
 
 @app.route('/house4')
 def house_kark_4():
-    photos = [
-        '/1.jpg',
-        '/2.jpg',
-        '/3.jpg'
-    ]
-
-    return render_template("dom4_kark/house_1.html", photos=photos)
+    """Страница дома 4 с динамической загрузкой данных"""
+    houses = load_houses_data()
+    house = next((h for h in houses if h['id'] == 4), None)
+    photos = house['photos'] if house else []
+    return render_template("dom4_kark/house_1.html", photos=photos, house=house)
 
 
 @app.route('/house5')
 def house_kark_5():
-    photos = [
-        '/1.jpg',
-        '/2.jpg',
-        '/3.jpg',
-        '/4.jpg'
-    ]
-
-    return render_template("dom5_kark/house_1.html", photos=photos)
+    """Страница дома 5 с динамической загрузкой данных"""
+    houses = load_houses_data()
+    house = next((h for h in houses if h['id'] == 5), None)
+    photos = house['photos'] if house else []
+    return render_template("dom5_kark/house_1.html", photos=photos, house=house)
 
 
 if __name__ == '__main__':

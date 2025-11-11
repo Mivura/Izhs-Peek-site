@@ -79,3 +79,46 @@
 .btn:hover {
     background: #12395c;
 }
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    .catalog-section {
+        padding: 40px 15px;
+    }
+
+    .catalog-title {
+        font-size: 1.8rem;
+    }
+
+    .catalog-subtitle {
+        font-size: 1rem;
+        margin-bottom: 30px;
+    }
+
+    .catalog-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .card-content h2 {
+        font-size: 1.2rem;
+    }
+
+    .card-content p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .catalog-title {
+        font-size: 1.5rem;
+    }
+
+    .catalog-subtitle {
+        font-size: 0.9rem;
+    }
+
+    .card-content {
+        padding: 15px;
+    }
+}

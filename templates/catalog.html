@@ -17,11 +17,11 @@
     <div class="catalog-grid">
       {% for house in houses %}
       <div class="catalog-card">
-        <img src="{{ url_for('static', filename='img/' + house.image) }}" alt="{{ house.name }}">
+        <img src="{{ url_for('static', filename='img/' + house.main_image) }}" alt="{{ house.name }}">
         <div class="card-content">
           <h2>{{ house.name }}</h2>
           <p>{{ house.description }}</p>
-          <a href="{{ url_for('project_detail', house_id=house.id) }}" class="btn">Подробнее</a>
+          <a href="{{ url_for(house.route) }}" class="btn">Подробнее</a>
         </div>
       </div>
       {% endfor %}

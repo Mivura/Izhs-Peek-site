@@ -2,12 +2,15 @@
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--    <link rel="stylesheet"  href="{{ url_for('static', filename='style.css')}}">-->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style_house.css')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styleForZaya.css') }}">
     <link rel="shortcut icon" href="{{ url_for('static', filename='img/logo_str.png') }}">
+    <!-- Swiper CSS для улучшенного слайдера -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     {% block styles %}}{% endblock%}}
 
     <title>ООО «ПИК»</title>
@@ -109,6 +112,10 @@
     </div>
     {% endblock %}
 </footer>
+
+<!-- Swiper JS для улучшенного слайдера с поддержкой мобильных устройств -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+{% block scripts %}{% endblock %}
 
 </body>
 

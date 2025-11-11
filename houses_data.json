@@ -1,0 +1,174 @@
+{
+  "houses": [
+    {
+      "id": 1,
+      "name": "Название 0",
+      "route": "house1",
+      "template": "dom1_kark/house_1.html",
+      "image_folder": "dom1_kark",
+      "main_image": "dom1_kark/1.jpg",
+      "description": "Современный дом из бруса с просторной террасой.",
+      "area": "191 м²",
+      "terrace": "55 м²",
+      "size": "11,3×16,2 м",
+      "price": "от 11 088 182 ₽",
+      "characteristics": {
+        "total_area": "191 м²",
+        "living_area": "136 м²",
+        "terrace_area": "55 м²",
+        "floors": "1 этаж",
+        "bedrooms": "3 спальни",
+        "bathrooms": "2 санузла"
+      },
+      "photos": [
+        "/1.jpg",
+        "/2.jpg",
+        "/3.jpg",
+        "/4.jpg"
+      ],
+      "plans": [
+        {
+          "image": "dom1_kark/plan.png",
+          "title": "1 этаж"
+        },
+        {
+          "image": "dom1_kark/plan2.PNG",
+          "title": "2 этаж"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Название 1",
+      "route": "house2",
+      "template": "dom2_kark/house_1.html",
+      "image_folder": "dom2_kark",
+      "main_image": "dom2_kark/1.jpg",
+      "description": "Уютный каркасный дом для круглогодичного проживания.",
+      "area": "161.2 м²",
+      "terrace": "51.2 м²",
+      "size": "11×15.3 м",
+      "price": "от 9 964 289 ₽",
+      "characteristics": {
+        "total_area": "161.2 м²",
+        "living_area": "120 м²",
+        "terrace_area": "51.2 м²",
+        "floors": "1 этаж",
+        "bedrooms": "2 спальни",
+        "bathrooms": "1 санузел"
+      },
+      "photos": [
+        "/1.jpg",
+        "/2.jpg",
+        "/3.jpg"
+      ],
+      "plans": [
+        {
+          "image": "dom2_kark/plan.png",
+          "title": "1 этаж"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "название 2",
+      "route": "house3",
+      "template": "dom3_kark/house_1.html",
+      "image_folder": "dom3_kark",
+      "main_image": "dom3_kark/1.jpg",
+      "description": "Классический проект из газобетона с мансардой.",
+      "area": "215 м²",
+      "terrace": "65 м²",
+      "size": "12×17 м",
+      "price": "от 13 842 000 ₽",
+      "characteristics": {
+        "total_area": "215 м²",
+        "living_area": "180 м²",
+        "terrace_area": "65 м²",
+        "floors": "2 этажа",
+        "bedrooms": "4 спальни",
+        "bathrooms": "2 санузла"
+      },
+      "photos": [
+        "/1.jpg",
+        "/2.jpg",
+        "/3.jpg"
+      ],
+      "plans": [
+        {
+          "image": "dom3_kark/plan.png",
+          "title": "1 этаж"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Назавние 3",
+      "route": "house4",
+      "template": "dom4_kark/house_1.html",
+      "image_folder": "dom4_kark",
+      "main_image": "dom4_kark/1.jpg",
+      "description": "Классический проект из газобетона с мансардой.",
+      "area": "215 м²",
+      "terrace": "65 м²",
+      "size": "12×17 м",
+      "price": "от 13 842 000 ₽",
+      "characteristics": {
+        "total_area": "215 м²",
+        "living_area": "180 м²",
+        "terrace_area": "65 м²",
+        "floors": "2 этажа",
+        "bedrooms": "4 спальни",
+        "bathrooms": "2 санузла"
+      },
+      "photos": [
+        "/1.jpg",
+        "/2.jpg",
+        "/3.jpg"
+      ],
+      "plans": [
+        {
+          "image": "dom4_kark/plan.png",
+          "title": "1 этаж"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Название 4",
+      "route": "house5",
+      "template": "dom5_kark/house_1.html",
+      "image_folder": "dom5_kark",
+      "main_image": "dom5_kark/1.jpg",
+      "description": "Классический проект из газобетона с мансардой.",
+      "area": "215 м²",
+      "terrace": "65 м²",
+      "size": "12×17 м",
+      "price": "от 13 842 000 ₽",
+      "characteristics": {
+        "total_area": "215 м²",
+        "living_area": "180 м²",
+        "terrace_area": "65 м²",
+        "floors": "2 этажа",
+        "bedrooms": "4 спальни",
+        "bathrooms": "2 санузла"
+      },
+      "photos": [
+        "/1.jpg",
+        "/2.jpg",
+        "/3.jpg",
+        "/4.jpg"
+      ],
+      "plans": [
+        {
+          "image": "dom5_kark/plan.png",
+          "title": "1 этаж"
+        },
+        {
+          "image": "dom5_kark/plan2.PNG",
+          "title": "2 этаж"
+        }
+      ]
+    }
+  ]
+}
