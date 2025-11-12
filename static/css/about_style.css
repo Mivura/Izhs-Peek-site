@@ -1,0 +1,279 @@
+/* About Page Styles - нейтральная бело-голубая гамма */
+.about-hero {
+    background: linear-gradient(135deg, #ffffff 0%, #e3f2fd 100%);
+    /*background: linear-gradient(135deg, rgba(44, 62, 80, 0.9) 0%, rgba(52, 152, 219, 0.8) 100%),*/
+    url('/static/img/hero_bg.jpg') center/cover;
+    color: #2c3e50;
+    padding: 120px 0 80px;
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: #546e7a;
+}
+
+.about-intro {
+    padding: 80px 0;
+    background: #fafafa;
+}
+
+.intro-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.intro-text {
+    font-size: 1.3rem;
+    line-height: 1.8;
+    color: #455a64;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.section-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: #3498db;
+}
+
+/* Advantages Section */
+.advantages-section {
+    padding: 80px 0;
+    background: white;
+}
+
+.advantages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.advantage-item {
+    text-align: center;
+    padding: 40px 30px;
+    border-radius: 15px;
+    background: #f8f9fa;
+    transition: all 0.3s ease;
+    border: 1px solid #e3f2fd;
+    position: relative;
+    overflow: hidden;
+}
+
+.advantage-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: #3498db;
+}
+
+.advantage-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(52, 152, 219, 0.15);
+    border-color: #3498db;
+}
+
+.advantage-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #3498db;
+}
+
+.advantage-item h3 {
+    color: #2c3e50;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.advantage-item p {
+    color: #546e7a;
+    line-height: 1.6;
+}
+
+/* Technologies Section */
+.technologies-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e3f2fd 100%);
+}
+
+.technologies-section .section-header h2 {
+    color: #2c3e50;
+}
+
+.technologies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.tech-card {
+    text-align: center;
+    padding: 40px 20px;
+    background: white;
+    border-radius: 15px;
+    border: 1px solid #e0e0e0;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.tech-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(52, 152, 219, 0.1);
+    border-color: #3498db;
+}
+
+.tech-icon {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    color: #3498db;
+}
+
+.tech-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.tech-card p {
+    color: #546e7a;
+    line-height: 1.6;
+}
+
+/* Mission Section */
+.mission-section {
+    padding: 100px 0;
+    background: white;
+    text-align: center;
+    border-top: 1px solid #e0e0e0;
+}
+
+.mission-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.mission-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    font-weight: 300;
+    color: #2c3e50;
+}
+
+.mission-text p {
+    font-size: 1.3rem;
+    line-height: 1.8;
+    color: #455a64;
+}
+
+/* CTA Section */
+.cta-section {
+    padding: 80px 0;
+    background: #3498db;
+    color: white;
+    text-align: center;
+}
+
+.cta-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.cta-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+.cta-button {
+    background: white;
+    color: #3498db;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    border: 2px solid transparent;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    background: transparent;
+    color: white;
+    border-color: white;
+}
+
+/* Анимации и адаптивность */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .intro-text {
+        font-size: 1.1rem;
+    }
+
+    .advantages-grid,
+    .technologies-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .advantage-item,
+    .tech-card {
+        padding: 30px 20px;
+    }
+
+    .section-header h2 {
+        font-size: 2rem;
+    }
+}
+
+/* Анимация появления при скролле */
+[data-aos] {
+    opacity: 0;
+    transition: all 0.6s ease;
+}
+
+[data-aos].aos-animate {
+    opacity: 1;
+}

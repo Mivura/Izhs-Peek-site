@@ -1,0 +1,300 @@
+.photo_dom img {
+    width: 100%;
+    padding-left: 10px;
+}
+
+.material_house {
+    text-align: center;
+    font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+    color: #3F5E7B;
+    font-size: 18px;
+    width: 80%;
+    margin: auto;
+}
+
+.material_house h1 {
+    font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+
+}
+
+/*.planirovka{*/
+/*    padding-top:50px;*/
+/*    border-bottom: #3F5E7B;*/
+/*    border-bottom-style: inherit;*/
+/*    width: 100%;*/
+/*    height: 40px;*/
+/*    display: inline-block;*/
+/*    position: initial;*/
+
+/*}*/
+.content {
+    min-height: 1000px;
+}
+
+.obch_plan {
+    width: auto;
+}
+
+.planirovka h2 {
+    text-align: center;
+    font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+    color: #3F5E7B;
+    font-size: 18px;
+    float: left;
+    padding-left: 20px;
+
+}
+
+.planirovka {
+    padding-top: 50px;
+    width: 100%;
+    height: 100px;
+    /*background-color: #3F5E7B;*/
+    border-bottom-style: dot-dot-dash;
+    border-color: #3F5E7B;
+    border: #3F5E7B;
+
+}
+
+.info_menu {
+    width: 40%;
+    float: right;
+    height: auto;
+    /*background-color: #3F5E7B;*/
+    display: inline-block;
+    /*flex-direction: row;*/
+    /*flex-wrap: wrap;*/
+    /*background-color: #3F5E7B;*/
+}
+
+.photo_dom {
+    width: 60%;
+    height: auto;
+    /*float: left;*/
+    display: inline-block;
+    /*flex-direction: row;*/
+    /*flex-wrap: wrap;*/
+}
+
+.photo_dom h1 {
+    padding-top: 40px;
+    /*font: inherit;*/
+    font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+    font-size: 35px;
+    padding-left: 40px;
+    color: #3F5E7B;
+}
+
+.photo_dom p {
+    /*font: inherit;*/
+    font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+    vertical-align: baseline;
+    text-align: justify;
+    padding-left: 40px;
+    padding-top: 40px;
+    font-size: 23px;
+
+}
+
+.info_ab{
+    padding-top: 20px;
+}
+.info_ab h2{
+    text-align: center;
+    font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+    color: #3F5E7B;
+    font-size: 18px;
+    float: left;
+    padding-left: 20px;
+}
+.pane-content{
+}
+.content_all {
+    min-height: 900px;
+    height: auto;
+}
+.info_cost {
+    width: 100%;
+    height: 60px;
+    /*background-color: #ebf2f7;*/
+    display: inline-block;
+    /*float: left;*/
+    margin: auto;
+    margin-top: 20px;
+    padding-left: 20px;
+    /*display: flex;*/
+    /*position: relative;*/
+    /*margin: 0 20px;*/
+}
+.info_cost p {
+    font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+
+    margin-bottom: 5px;
+    margin: auto;
+    text-align: left;
+    vertical-align: top;
+    font-size: 17px;
+}
+
+.info_cost h2 {
+    margin-top: 5px;
+    vertical-align: bottom;
+    font-family: 'PTSans-Narrow';
+    text-align: center;
+    width: 40%;
+    color: white;
+    background-color: #458db5;
+    font-size: 23px;
+
+
+}
+
+.info_cost2 {
+    width: 100%;
+    height: 60px;
+    /*background-color: #ebf2f7;*/
+    display: inline-block;
+    /*float: left;*/
+    margin: auto;
+    margin-top: 20px;
+    padding-left: 20px;
+    /*display: flex;*/
+    /*position: relative;*/
+    /*margin: 0 20px;*/
+}
+.info_cost2 p {
+    font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+
+    margin-bottom: 5px;
+    margin: auto;
+    text-align: left;
+    vertical-align: top;
+    font-size: 17px;
+}
+
+.info_cost2 h2 {
+    margin-top: 5px;
+    vertical-align: bottom;
+    font-family: 'PTSans-Narrow';
+    text-align: center;
+    width: 40%;
+    color: white;
+    background-color: #458db5;
+    font-size: 23px;
+
+
+}
+.info_ab{
+    padding-top: 50px;
+}
+/*=======================*/
+.cardCharacteristic {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 0px 25px;
+    padding-top: 30px;
+    padding-bottom: 0px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background-color: rgba(0,0,0,.2);
+    background: #f3f3f3;
+    margin-top: 30px;
+}
+@media (max-width: 991px) {
+    .info_cost h2 {
+        margin-top: 5px;
+        vertical-align: bottom;
+        font-family: 'PTSans-Narrow';
+
+        text-align: center;
+        width: 40%;
+        color: white;
+        background: #458db5;
+        font-size: 15px;
+
+
+    }
+    .info_cost p {
+        font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+
+        margin-bottom: 5px;
+        margin: auto;
+        text-align: left;
+        vertical-align: top;
+        font-size: 12px;
+    }
+    .info_cost {
+        width: 50%;
+        height: 40px;
+        /*background-color: #ebf2f7;*/
+        display: inline-block;
+        /*float: left;*/
+        margin: auto;
+        padding-top: 25px;
+        padding-left: 20px;
+        /*display: flex;*/
+        /*position: relative;*/
+        /*margin: 0 20px;*/
+    }
+    .info_cost2 h2 {
+        margin-top: 5px;
+        vertical-align: bottom;
+        font-family: 'PTSans-Narrow';
+
+        text-align: center;
+        width: 40%;
+        color: white;
+        background: #458db5;
+        font-size: 15px;
+
+
+    }
+    .info_cost2 p {
+        font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+
+        margin-bottom: 5px;
+        margin: auto;
+        text-align: left;
+        vertical-align: top;
+        font-size: 12px;
+    }
+    .info_cost2 {
+        float: right;
+        width: 50%;
+        height: 40px;
+        /*background-color: #ebf2f7;*/
+        display: inline-block;
+        /*float: left;*/
+        margin: auto;
+        padding-top: 25px;
+        padding-left: 20px;
+        /*display: flex;*/
+        /*position: relative;*/
+        /*margin: 0 20px;*/
+    }
+    .photo_dom{
+        width: 100%;
+    }
+    .info_menu{
+        width: 100%;
+    }
+    .obch_plan img{
+        width: 100%;
+    }
+    .cardCharacteristic{
+
+        width: 100%;
+    }
+    .info_ab{
+        padding-top: 30%;
+    }
+}
