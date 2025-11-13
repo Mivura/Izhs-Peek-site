@@ -293,10 +293,10 @@
                     <h2 class="layout-title">Планировка</h2>
                     <div class="house-floors">
                         <div class="floor-plan active">
-                            <img src="{{ url_for('static', filename='img/dom12_kark/plan.png') }}" alt="1 этаж">
+                            <img src="{{ url_for('static', filename='img/dom12_kark/plan_1.jpg') }}" alt="1 этаж">
                         </div>
                         <div class="floor-plan">
-                            <img src="{{ url_for('static', filename='img/dom12_kark/plan2.PNG') }}" alt="2 этаж">
+                            <img src="{{ url_for('static', filename='img/dom12_kark/plan_2.jpg') }}" alt="2 этаж">
                         </div>
                         <!--                        <div class="floor-plan">-->
                         <!--                            <img src="/static/floor3.jpg" alt="3 этаж">-->
@@ -311,7 +311,7 @@
 <!--                            <span class="floor-dot" data-floor="2"></span>-->
                         </div>
                     </div>
-                    <!--                    <img src="{{ url_for('static', filename='img/dom12_kark/plan.png') }}" alt="План дома" class="layout-image">-->
+                    <!--                    <img src="{{ url_for('static', filename='img/dom12_kark/plan_1.jpg') }}" alt="План дома" class="layout-image">-->
 
                     <div class="manager-info">
                         <div class="manager-name">АЛЕКСАНДР</div>
@@ -1093,140 +1093,175 @@
                 <h2 class="services-title">ДОПОЛНИТЕЛЬНЫЕ УСЛУГИ</h2>
 
                 <div class="services-list">
-                    <!-- Существующие услуги -->
-                    <div class="service-item" data-price="132000">
-                        <input type="checkbox" name="services" value="Свайно-винтовой фундамент"
+                    <div class="service-item" data-price="283000">
+                        <input type="checkbox" name="services" value="железобетонные сваи 34 шт."
                                class="service-checkbox"
                                id="service1">
                         <div class="service-info">
-                            <div class="service-title">Свайно-винтовой фундамент 16 свай</div>
-                            <div class="service-description">• проба грунта</div>
-                            <div class="service-price">132 000 ₽</div>
+                            <div class="service-title">железобетонные сваи 34 шт.</div>
+                            <div class="service-description">• пробное бурение.</div>
+                            <div class="service-price">283 000 ₽</div>
                         </div>
                     </div>
 
-                    <div class="service-item" data-price="147000">
-                        <input type="checkbox" name="services" value="Железобетонные сваи" class="service-checkbox"
+                    <div class="service-item" data-price="270000">
+                        <input type="checkbox" name="services" value="Замена базового кровельного материала на мягкую кровлю Шинглас"
+                               class="service-checkbox"
                                id="service2">
                         <div class="service-info">
-                            <div class="service-title">Железобетонные сваи 16 шт.</div>
-                            <div class="service-description">• пробное бурение</div>
-                            <div class="service-price">147 000 ₽</div>
+                            <div class="service-title">Замена базового кровельного материала на мягкую кровлю Шинглас</div>
+                            <div class="service-description">• Технониколь</div>
+                            <div class="service-price">270 000 ₽</div>
                         </div>
                     </div>
 
-                    <div class="service-item" data-price="432000">
-                        <input type="checkbox" name="services" value="Монолитная плита" class="service-checkbox"
+                    <div class="service-item" data-price="571050">
+                        <input type="checkbox" name="services" value="Замена базового кровельного покрытия на Кликфальц"
+                               class="service-checkbox"
                                id="service3">
                         <div class="service-info">
-                            <div class="service-title">Монолитная железобетонная плита толщиной 250мм</div>
-                            <div class="service-description">• с учётом опалубки, подсыпки песка и щебня (При условии
-                                ровного участка)
-                            </div>
-                            <div class="service-price">432 000 ₽</div>
+                            <div class="service-title">Замена базового кровельного покрытия на Кликфальц</div>
+                            <div class="service-price">571 050 ₽</div>
                         </div>
                     </div>
 
-                    <div class="service-item" data-price="40500">
-                        <input type="checkbox" name="services" value="Усиление лаг" class="service-checkbox"
+                    <div class="service-item" data-price="112500">
+                        <input type="checkbox" name="services" value="Водосточная система деке, цвет на выбо"
+                               class="service-checkbox"
                                id="service4">
                         <div class="service-info">
-                            <div class="service-title">Усиление половых лаг первого этажа</div>
-                            <div class="service-price">40 500 ₽</div>
+                            <div class="service-title">Водосточная система деке, цвет на выбо</div>
+                            <div class="service-price">112 500 ₽</div>
                         </div>
                     </div>
 
-                    <div class="service-item" data-price="85000">
-                        <input type="checkbox" name="services" value="Водосточная система" class="service-checkbox"
+                    <div class="service-item" data-price="129600">
+                        <input type="checkbox" name="services" value="Зашивка цоколя в 1 ряд панелями деке"
+                               class="service-checkbox"
                                id="service5">
                         <div class="service-info">
-                            <div class="service-title">Водосточная система деке, цвет на выбор</div>
-                            <div class="service-price">85 000 ₽</div>
+                            <div class="service-title">Зашивка цоколя в 1 ряд панелями деке</div>
+                            <div class="service-price">129 600 ₽</div>
                         </div>
                     </div>
 
-                    <div class="service-item" data-price="160000">
-                        <input type="checkbox" name="services" value="Вентиляция" class="service-checkbox"
+                    <div class="service-item" data-price="139300">
+                        <input type="checkbox" name="services" value="Антисептирование всего силового каркаса на возведенном доме"
+                               class="service-checkbox"
                                id="service6">
                         <div class="service-info">
-                            <div class="service-title">Вентиляция комплект вент. грибков в кровлю • приточные КИВ
-                                клапаны
-                            </div>
-                            <div class="service-price">160 000 ₽</div>
+                            <div class="service-title">Антисептирование всего силового каркаса на возведенном доме</div>
+                            <div class="service-price">139 300 ₽</div>
                         </div>
                     </div>
 
-                    <div class="service-item" data-price="67400">
-                        <input type="checkbox" name="services" value="Зашивка цоколя" class="service-checkbox"
+                    <div class="service-item" data-price="488700">
+                        <input type="checkbox" name="services" value="Покраска наружной отделки стен и свесов кровли на возведенном доме"
+                               class="service-checkbox"
                                id="service7">
                         <div class="service-info">
-                            <div class="service-title">Зашивка цоколя в 1 ряд панелями деке</div>
-                            <div class="service-price">67 400 ₽</div>
+                            <div class="service-title">Покраска наружной отделки стен и свесов кровли на возведенном доме</div>
+                            <div class="service-price">488 700 ₽</div>
+                        </div>
+                    </div>
+
+                    <div class="service-item" data-price="664650">
+                        <input type="checkbox" name="services" value="Покраска внутренних стен и потолков во всем доме на возведенном доме"
+                               class="service-checkbox"
+                               id="service8">
+                        <div class="service-info">
+                            <div class="service-title">Покраска внутренних стен и потолков во всем доме на возведенном доме</div>
+                            <div class="service-price">664 650 ₽</div>
+                        </div>
+                    </div>
+
+                    <div class="service-item" data-price="128000">
+                        <input type="checkbox" name="services" value="Замена на потолке имитации бруса, на натяжной потолок"
+                               class="service-checkbox"
+                               id="service9">
+                        <div class="service-info">
+                            <div class="service-title">Замена на потолке имитации бруса, на натяжной потолок</div>
+                            <div class="service-price">128 000 ₽</div>
+                        </div>
+                    </div>
+
+                    <div class="service-item" data-price="550400">
+                        <input type="checkbox" name="services" value="Ламинат на полы"
+                               class="service-checkbox"
+                               id="service10">
+                        <div class="service-info">
+                            <div class="service-title">Ламинат на полы</div>
+                            <div class="service-price">550 400 ₽</div>
+                        </div>
+                    </div>
+
+                    <div class="service-item" data-price="336000">
+                        <input type="checkbox" name="services" value="Замена всех межкомнатных дверей на МДФ двери Тёмного или Светлого цвета, на выбо"
+                               class="service-checkbox"
+                               id="service11">
+                        <div class="service-info">
+                            <div class="service-title">Замена всех межкомнатных дверей на МДФ двери Тёмного или Светлого цвета, на выбо</div>
+                            <div class="service-price">336 000 ₽</div>
+                        </div>
+                    </div>
+
+                    <div class="service-item" data-price="351000">
+                        <input type="checkbox" name="services" value="40 точек электропроводки"
+                               class="service-checkbox"
+                               id="service12">
+                        <div class="service-info">
+                            <div class="service-title">40 точек электропроводки</div>
+                            <div class="service-description">• щиток</div>
+                            <div class="service-price">351 000 ₽</div>
                         </div>
                     </div>
 
                     <div class="service-item" data-price="210000">
-                        <input type="checkbox" name="services" value="Электропроводка" class="service-checkbox"
-                               id="service8">
+                        <input type="checkbox" name="services" value="Черновая разводка ГВС, ХВС и канализации по дому"
+                               class="service-checkbox"
+                               id="service13">
                         <div class="service-info">
-                            <div class="service-title">до точек электропроводки • щиток</div>
+                            <div class="service-title">Черновая разводка ГВС, ХВС и канализации по дому</div>
                             <div class="service-price">210 000 ₽</div>
                         </div>
                     </div>
 
-                    <div class="service-item" data-price="170000">
-                        <input type="checkbox" name="services" value="Разводка коммуникаций" class="service-checkbox"
-                               id="service9">
+                    <div class="service-item" data-price="252000">
+                        <input type="checkbox" name="services" value="Отопление электрическими обогревателями"
+                               class="service-checkbox"
+                               id="service14">
                         <div class="service-info">
-                            <div class="service-title">Черновая разводка ГВС, ХВС и канализации по дому</div>
-                            <div class="service-price">170 000 ₽</div>
+                            <div class="service-title">Отопление электрическими обогревателями</div>
+                            <div class="service-description">• комплект с установкой на весь дом</div>
+                            <div class="service-price">252 000 ₽</div>
                         </div>
                     </div>
 
-                    <div class="service-item" data-price="90000">
-                        <input type="checkbox" name="services" value="Электрическое отопление" class="service-checkbox"
-                               id="service10">
+                    <div class="service-item" data-price="403200">
+                        <input type="checkbox" name="services" value="Отопление дома электрическим теплым полом"
+                               class="service-checkbox"
+                               id="service15">
                         <div class="service-info">
-                            <div class="service-title">Отопление электрическими обогревателями (комплект с установкой на
-                                весь дом)
-                            </div>
-                            <div class="service-price">90 000 ₽</div>
+                            <div class="service-title">Отопление дома электрическим теплым полом</div>
+                            <div class="service-price">403 200 ₽</div>
                         </div>
                     </div>
 
-                    <div class="service-item" data-price="559000">
-                        <input type="checkbox" name="services" value="Теплые полы и радиаторы" class="service-checkbox"
-                               id="service11">
+                    <div class="service-item" data-price="250000">
+                        <input type="checkbox" name="services" value="Автономная канализация. Станция биологической очистки."
+                               class="service-checkbox"
+                               id="service16">
                         <div class="service-info">
-                            <div class="service-title">Отопление дома от электро котла: 1 этаж - водяные тёплые полы с
-                                полусухой стяжкой, 2 этаж - радиаторы
-                            </div>
-                            <div class="service-price">559 000 ₽</div>
-                        </div>
-                    </div>
-
-                    <div class="service-item" data-price="510000">
-                        <input type="checkbox" name="services" value="Водяные радиаторы" class="service-checkbox"
-                               id="service12">
-                        <div class="service-info">
-                            <div class="service-title">Отопление водяными радиаторами • электро котёл</div>
-                            <div class="service-price">510 000 ₽</div>
-                        </div>
-                    </div>
-
-                    <div class="service-item" data-price="260000">
-                        <input type="checkbox" name="services" value="Канализация" class="service-checkbox"
-                               id="service13">
-                        <div class="service-info">
-                            <div class="service-title">Автономная канализация. Станция биологической очистки (Септик)
-                            </div>
-                            <div class="service-price">260 000 ₽</div>
+                            <div class="service-title">Автономная канализация. Станция биологической очистки.</div>
+                            <div class="service-description">• Септик</div>
+                            <div class="service-price">250 000 ₽</div>
                         </div>
                     </div>
 
                     <div class="service-item" data-price="300000">
-                        <input type="checkbox" name="services" value="Фильтрационная система" class="service-checkbox"
-                               id="service14">
+                        <input type="checkbox" name="services" value="Фильтрационная система"
+                               class="service-checkbox"
+                               id="service17">
                         <div class="service-info">
                             <div class="service-title">Фильтрационная система</div>
                             <div class="service-description">• стоимость может измениться после анализа воды</div>
@@ -1234,47 +1269,93 @@
                         </div>
                     </div>
 
-                    <!-- Новые услуги -->
-                    <div class="service-item" data-price="45000">
-                        <input type="checkbox" name="services" value="Временка для рабочих" class="service-checkbox"
-                               id="service15">
+                    <div class="service-item" data-price="60000">
+                        <input type="checkbox" name="services" value="Аренда блок-контейнера для проживания бригады, на весь срок строительства"
+                               class="service-checkbox"
+                               id="service18">
                         <div class="service-info">
-                            <div class="service-title">Временка для рабочих схем</div>
-                            <div class="service-description">• временное электроснабжение на период строительства</div>
-                            <div class="service-price">45 000 ₽</div>
+                            <div class="service-title">Аренда блок-контейнера для проживания бригады, на весь срок строительства</div>
+                            <div class="service-price">60 000 ₽</div>
+                        </div>
+                    </div>
+
+                    <div class="service-item" data-price="80000">
+                        <input type="checkbox" name="services" value="Вывоз мусора после строительства"
+                               class="service-checkbox"
+                               id="service19">
+                        <div class="service-info">
+                            <div class="service-title">Вывоз мусора после строительства</div>
+                            <div class="service-description">• 1 Пухто или 2 газели</div>
+                            <div class="service-price">80 000 ₽</div>
+                        </div>
+                    </div>
+
+                    <div class="service-item" data-price="40000">
+                        <input type="checkbox" name="services" value="Регистрация дома."
+                               class="service-checkbox"
+                               id="service20">
+                        <div class="service-info">
+                            <div class="service-title">Регистрация дома.</div>
+                            <div class="service-description">• технический план здания с подачей документов в Росреестр</div>
+                            <div class="service-price">40 000 ₽</div>
+                        </div>
+                    </div>
+
+                    <div class="service-item" data-price="220000">
+                        <input type="checkbox" name="services" value="Заезд на участок шириной до 6м"
+                               class="service-checkbox"
+                               id="service21">
+                        <div class="service-info">
+                            <div class="service-title">Заезд на участок шириной до 6м</div>
+                            <div class="service-description">• для не глубоких канав</div>
+                            <div class="service-price">220 000 ₽</div>
+                        </div>
+                    </div>
+
+                    <div class="service-item" data-price="420000">
+                        <input type="checkbox" name="services" value="Чистовые сантехнические приборы: бойлер, унитаз, раковина, душевая кабина"
+                               class="service-checkbox"
+                               id="service22">
+                        <div class="service-info">
+                            <div class="service-title">Чистовые сантехнические приборы: бойлер, унитаз, раковина, душевая кабина</div>
+                            <div class="service-description">• ы</div>
+                            <div class="service-price">420 000 ₽</div>
+                        </div>
+                    </div>
+
+                    <div class="service-item" data-price="30000">
+                        <input type="checkbox" name="services" value="Незамерзающий кран для полива"
+                               class="service-checkbox"
+                               id="service23">
+                        <div class="service-info">
+                            <div class="service-title">Незамерзающий кран для полива</div>
+                            <div class="service-description">• добавляется к черновой разводке труб</div>
+                            <div class="service-price">30 000 ₽</div>
+                        </div>
+                    </div>
+
+                    <div class="service-item" data-price="60000">
+                        <input type="checkbox" name="services" value="Заземление"
+                               class="service-checkbox"
+                               id="service24">
+                        <div class="service-info">
+                            <div class="service-title">Заземление</div>
+                            <div class="service-description">• комплект с установкой</div>
+                            <div class="service-price">60 000 ₽</div>
                         </div>
                     </div>
 
                     <div class="service-item" data-price="120000">
-                        <input type="checkbox" name="services" value="Аренда блок-контейнера" class="service-checkbox"
-                               id="service16">
+                        <input type="checkbox" name="services" value="Подключение света от общего столба к дому в земле до 20 м"
+                               class="service-checkbox"
+                               id="service25">
                         <div class="service-info">
-                            <div class="service-title">Аренда блок-контейнера для проживания бригады</div>
-                            <div class="service-description">• на весь срок строительства</div>
+                            <div class="service-title">Подключение света от общего столба к дому в земле до 20 м</div>
+                            <div class="service-description">• п.</div>
                             <div class="service-price">120 000 ₽</div>
                         </div>
                     </div>
 
-                    <div class="service-item" data-price="35000">
-                        <input type="checkbox" name="services" value="Вывоз мусора" class="service-checkbox"
-                               id="service17">
-                        <div class="service-info">
-                            <div class="service-title">Вывоз мусора после строительства</div>
-                            <div class="service-description">• 1 Пухто или 2 газели</div>
-                            <div class="service-price">35 000 ₽</div>
-                        </div>
-                    </div>
-
-                    <div class="service-item" data-price="55000">
-                        <input type="checkbox" name="services" value="Регистрация дома" class="service-checkbox"
-                               id="service18">
-                        <div class="service-info">
-                            <div class="service-title">Регистрация дома</div>
-                            <div class="service-description">• технический план здания с подачей документов в Росреестр
-                            </div>
-                            <div class="service-price">55 000 ₽</div>
-                        </div>
-                    </div>
                 </div>
 
                 <button type="button" class="submit-btn" onclick="window.location.href='{{ url_for('contact') }}'">
