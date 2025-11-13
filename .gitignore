@@ -29,3 +29,8 @@ Thumbs.db
 # Environment
 .env
 .flaskenv
+
+# Temporary generation files
+Дома/
+new_routes.py
+generate_houses.py

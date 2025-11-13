@@ -322,6 +322,186 @@ def house_kark_5():
     return render_template("dom5_kark/house_1.html", photos=photos, house=house)
 
 
+@app.route('/house6')
+def house_kark_6():
+    """Страница дома 6 с динамической загрузкой данных"""
+    houses = load_houses_data()
+    house = next((h for h in houses if h['id'] == 6), None)
+    photos = house['photos'] if house else []
+    return render_template("dom6_kark/house_1.html", photos=photos, house=house)
+
+
+@app.route('/house7')
+def house_kark_7():
+    """Страница дома 7 с динамической загрузкой данных"""
+    houses = load_houses_data()
+    house = next((h for h in houses if h['id'] == 7), None)
+    photos = house['photos'] if house else []
+    return render_template("dom7_kark/house_1.html", photos=photos, house=house)
+
+
+@app.route('/house8')
+def house_kark_8():
+    """Страница дома 8 с динамической загрузкой данных"""
+    houses = load_houses_data()
+    house = next((h for h in houses if h['id'] == 8), None)
+    photos = house['photos'] if house else []
+    return render_template("dom8_kark/house_1.html", photos=photos, house=house)
+
+
+@app.route('/house9')
+def house_kark_9():
+    """Страница дома 9 с динамической загрузкой данных"""
+    houses = load_houses_data()
+    house = next((h for h in houses if h['id'] == 9), None)
+    photos = house['photos'] if house else []
+    return render_template("dom9_kark/house_1.html", photos=photos, house=house)
+
+
+@app.route('/house10')
+def house_kark_10():
+    """Страница дома 10 с динамической загрузкой данных"""
+    houses = load_houses_data()
+    house = next((h for h in houses if h['id'] == 10), None)
+    photos = house['photos'] if house else []
+    return render_template("dom10_kark/house_1.html", photos=photos, house=house)
+
+
+@app.route('/house11')
+def house_kark_11():
+    """Страница дома 11 с динамической загрузкой данных"""
+    houses = load_houses_data()
+    house = next((h for h in houses if h['id'] == 11), None)
+    photos = house['photos'] if house else []
+    return render_template("dom11_kark/house_1.html", photos=photos, house=house)
+
+
+@app.route('/house12')
+def house_kark_12():
+    """Страница дома 12 с динамической загрузкой данных"""
+    houses = load_houses_data()
+    house = next((h for h in houses if h['id'] == 12), None)
+    photos = house['photos'] if house else []
+    return render_template("dom12_kark/house_1.html", photos=photos, house=house)
+
+
+@app.route('/house13')
+def house_kark_13():
+    """Страница дома 13 с динамической загрузкой данных"""
+    houses = load_houses_data()
+    house = next((h for h in houses if h['id'] == 13), None)
+    photos = house['photos'] if house else []
+    return render_template("dom13_kark/house_1.html", photos=photos, house=house)
+
+
+@app.route('/house14')
+def house_kark_14():
+    """Страница дома 14 с динамической загрузкой данных"""
+    houses = load_houses_data()
+    house = next((h for h in houses if h['id'] == 14), None)
+    photos = house['photos'] if house else []
+    return render_template("dom14_kark/house_1.html", photos=photos, house=house)
+
+
+@app.route('/house15')
+def house_kark_15():
+    """Страница дома 15 с динамической загрузкой данных"""
+    houses = load_houses_data()
+    house = next((h for h in houses if h['id'] == 15), None)
+    photos = house['photos'] if house else []
+    return render_template("dom15_kark/house_1.html", photos=photos, house=house)
+
+
+@app.route('/house16')
+def house_kark_16():
+    """Страница дома 16 с динамической загрузкой данных"""
+    houses = load_houses_data()
+    house = next((h for h in houses if h['id'] == 16), None)
+    photos = house['photos'] if house else []
+    return render_template("dom16_kark/house_1.html", photos=photos, house=house)
+
+
+@app.route('/house17')
+def house_kark_17():
+    """Страница дома 17 с динамической загрузкой данных"""
+    houses = load_houses_data()
+    house = next((h for h in houses if h['id'] == 17), None)
+    photos = house['photos'] if house else []
+    return render_template("dom17_kark/house_1.html", photos=photos, house=house)
+
+
+@app.route('/house18')
+def house_kark_18():
+    """Страница дома 18 с динамической загрузкой данных"""
+    houses = load_houses_data()
+    house = next((h for h in houses if h['id'] == 18), None)
+    photos = house['photos'] if house else []
+    return render_template("dom18_kark/house_1.html", photos=photos, house=house)
+
+
+@app.route('/house19')
+def house_kark_19():
+    """Страница дома 19 с динамической загрузкой данных"""
+    houses = load_houses_data()
+    house = next((h for h in houses if h['id'] == 19), None)
+    photos = house['photos'] if house else []
+    return render_template("dom19_kark/house_1.html", photos=photos, house=house)
+
+
+@app.route('/house20')
+def house_kark_20():
+    """Страница дома 20 с динамической загрузкой данных"""
+    houses = load_houses_data()
+    house = next((h for h in houses if h['id'] == 20), None)
+    photos = house['photos'] if house else []
+    return render_template("dom20_kark/house_1.html", photos=photos, house=house)
+
+
+@app.route('/house21')
+def house_kark_21():
+    """Страница дома 21 с динамической загрузкой данных"""
+    houses = load_houses_data()
+    house = next((h for h in houses if h['id'] == 21), None)
+    photos = house['photos'] if house else []
+    return render_template("dom21_kark/house_1.html", photos=photos, house=house)
+
+
+@app.route('/house22')
+def house_kark_22():
+    """Страница дома 22 с динамической загрузкой данных"""
+    houses = load_houses_data()
+    house = next((h for h in houses if h['id'] == 22), None)
+    photos = house['photos'] if house else []
+    return render_template("dom22_kark/house_1.html", photos=photos, house=house)
+
+
+@app.route('/house23')
+def house_kark_23():
+    """Страница дома 23 с динамической загрузкой данных"""
+    houses = load_houses_data()
+    house = next((h for h in houses if h['id'] == 23), None)
+    photos = house['photos'] if house else []
+    return render_template("dom23_kark/house_1.html", photos=photos, house=house)
+
+
+@app.route('/house24')
+def house_kark_24():
+    """Страница дома 24 с динамической загрузкой данных"""
+    houses = load_houses_data()
+    house = next((h for h in houses if h['id'] == 24), None)
+    photos = house['photos'] if house else []
+    return render_template("dom24_kark/house_1.html", photos=photos, house=house)
+
+
+@app.route('/house25')
+def house_kark_25():
+    """Страница дома 25 с динамической загрузкой данных"""
+    houses = load_houses_data()
+    house = next((h for h in houses if h['id'] == 25), None)
+    photos = house['photos'] if house else []
+    return render_template("dom25_kark/house_1.html", photos=photos, house=house)
+
+
 if __name__ == '__main__':
     app.run(debug=True)
 
