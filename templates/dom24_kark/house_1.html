@@ -1,0 +1,1466 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+    <!--    <link rel="stylesheet" href="style_house.css">-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styleForZaya.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/logo_str.png') }}">
+    <title>ДО- 112 - ООО «ПИК»</title>
+</head>
+<!--</head>-->
+
+<body>
+{% block content %}
+<div class="HeaderContent">
+    <h1 class="nazv_doma">ДО- 112</h1>
+    <img src="{{ url_for('static', filename='img/dom24_kark/1.png') }}">
+
+</div>
+<content>
+
+    <div class="content_all">
+
+
+        <!--            ===========================Характеристики================================================-->
+
+
+        <title>План дома</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: Arial, sans-serif;
+            }
+
+            .container-settings {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 40px 20px;
+            }
+
+            .main-content {
+                display: flex;
+                gap: 40px;
+                align-items: flex-start;
+            }
+
+            .characteristics {
+                flex: 1;
+            }
+
+            .characteristics h1 {
+                font-size: 24px;
+                margin-bottom: 20px;
+                color: #333;
+            }
+
+            .specs-grid {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 15px;
+                margin-bottom: 30px;
+            }
+
+            .spec-item {
+                padding: 10px 0;
+                border-bottom: 1px solid #eee;
+            }
+
+            .spec-item strong {
+                display: block;
+                color: #333;
+                margin-bottom: 5px;
+            }
+
+            .spec-item span {
+                color: #666;
+            }
+
+            .layout-section {
+                flex: 1;
+            }
+
+            .layout-title {
+                background: #3a7bd5;
+                color: white;
+                padding: 10px 25px;
+                font-size: 20px;
+                font-weight: bold;
+                border-radius: 8px 8px 0 0;
+                margin-bottom: 0;
+            }
+
+            .layout-image {
+                width: 100%;
+                max-width: 100%;
+                display: block;
+            }
+
+            .manager-info {
+                margin-top: 20px;
+            }
+
+            .manager-name {
+                font-weight: bold;
+                margin-bottom: 5px;
+            }
+
+            .manager-position {
+                color: #666;
+                margin-bottom: 15px;
+            }
+
+            .cta-button {
+                display: inline-block;
+                background: #3a7bd5;
+                color: white;
+                padding: 12px 25px;
+                text-decoration: none;
+                border-radius: 5px;
+                font-weight: bold;
+                transition: background 0.3s;
+                margin-top: 15px;
+            }
+
+            .cta-button:hover {
+                background: #2c65b0;
+            }
+
+            /* Адаптивность для мобильных устройств */
+            @media (max-width: 768px) {
+                .main-content {
+                    flex-direction: column;
+                    gap: 20px;
+                }
+            }
+        </style>
+
+        <div class="container-settings">
+            <div class="main-content">
+                <section class="characteristics">
+                    <h1>ХАРАКТЕРИСТИКИ</h1>
+
+                    <div class="specs-grid">
+                        <div class="spec-item">
+                            <strong>Общая площадь дома:</strong>
+                            <span>72 м2</span>
+                        </div>
+                        <div class="spec-item">
+                            <strong>Жилая площадь дома:</strong>
+                            <span>54 м2</span>
+                        </div>
+                        <div class="spec-item">
+                            <strong>Площадь террасы:</strong>
+                            <span>18 м2</span>
+                        </div>
+                        <div class="spec-item">
+                            <strong>Кол-во этажей:</strong>
+                            <span>1 этаж</span>
+                        </div>
+                        <div class="spec-item">
+                            <strong>Кол-во спален:</strong>
+                            <span>2 спальни</span>
+                        </div>
+                        <div class="spec-item">
+                            <strong>Кол-во санузлов:</strong>
+                            <span>1 санузла</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!--                СКРИПТ ДЛЯ СЛАЙДЕРА В ПЛАНИРОВКЕ-->
+                <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                        let currentFloor = 0;
+                        const floorPlans = document.querySelectorAll('.floor-plan');
+                        const floorDots = document.querySelectorAll('.floor-dot');
+
+                        function showFloor(n) {
+// Скрываем все планы этажей
+                            floorPlans.forEach(plan => plan.classList.remove('active'));
+                            floorDots.forEach(dot => dot.classList.remove('active'));
+
+// Обновляем текущий этаж
+                            currentFloor = (n + floorPlans.length) % floorPlans.length;
+
+// Показываем активный этаж
+                            floorPlans[currentFloor].classList.add('active');
+                            floorDots[currentFloor].classList.add('active');
+                        }
+
+// Обработчики для кнопок
+                        document.querySelector('.floor-prev').addEventListener('click', function () {
+                            showFloor(currentFloor - 1);
+                        });
+
+                        document.querySelector('.floor-next').addEventListener('click', function () {
+                            showFloor(currentFloor + 1);
+                        });
+
+// Обработчики для индикаторов
+                        floorDots.forEach(dot => {
+                            dot.addEventListener('click', function () {
+                                const floorIndex = parseInt(this.getAttribute('data-floor'));
+                                showFloor(floorIndex);
+                            });
+                        });
+
+// Обработчики для клавиатуры
+                        document.addEventListener('keydown', function (e) {
+                            if (e.key === 'ArrowLeft') {
+                                showFloor(currentFloor - 1);
+                            } else if (e.key === 'ArrowRight') {
+                                showFloor(currentFloor + 1);
+                            }
+                        });
+                    });
+
+                </script>
+<!--                СТИЛИ ДЛЯ СЛАЙДЕРА В ПЛАНЕ-->
+                <style>
+                    .house-floors {
+                        position: relative;
+                        max-width: 800px;
+                        margin: 0 auto;
+                    }
+
+                    .floor-plan {
+                        display: none;
+                        text-align: center;
+                    }
+
+                    .floor-plan.active {
+                        display: block;
+                    }
+
+                    .floor-plan img {
+                        max-width: 100%;
+                        height: auto;
+                    }
+
+                    .floor-prev,
+                    .floor-next {
+                        position: absolute;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        background: rgba(0,0,0,0.7);
+                        color: white;
+                        border: none;
+                        padding: 15px 10px;
+                        cursor: pointer;
+                        font-size: 18px;
+                        border-radius: 3px;
+                    }
+
+                    .floor-prev:hover,
+                    .floor-next:hover {
+                        background: rgba(0,0,0,0.9);
+                    }
+
+                    .floor-prev {
+                        left: 10px;
+                    }
+
+                    .floor-next {
+                        right: 10px;
+                    }
+
+                    .floor-indicators {
+                        text-align: center;
+                        margin-top: 15px;
+                    }
+
+                    .floor-dot {
+                        display: inline-block;
+                        width: 12px;
+                        height: 12px;
+                        background: #ccc;
+                        border-radius: 50%;
+                        margin: 0 5px;
+                        cursor: pointer;
+                    }
+
+                    .floor-dot.active {
+                        background: #333;
+                    }
+                </style>
+                <section class="layout-section">
+                    <h2 class="layout-title">Планировка</h2>
+                    <div class="house-floors">
+                        <div class="floor-plan active">
+                            <img src="{{ url_for('static', filename='img/dom24_kark/plan.png') }}" alt="1 этаж">
+                        </div>
+                        <div class="floor-plan">
+                            <img src="{{ url_for('static', filename='img/dom24_kark/plan2.PNG') }}" alt="2 этаж">
+                        </div>
+                        <!--                        <div class="floor-plan">-->
+                        <!--                            <img src="/static/floor3.jpg" alt="3 этаж">-->
+                        <!--                        </div>-->
+
+                        
+
+                        
+                    </div>
+                    <!--                    <img src="{{ url_for('static', filename='img/dom24_kark/plan.png') }}" alt="План дома" class="layout-image">-->
+
+                    <div class="manager-info">
+                        <div class="manager-name">АЛЕКСАНДР</div>
+                        <div class="manager-position">Менеджер</div>
+                        <p style="margin-bottom: 15px; color: #555;">
+                            Хотите построить или перепроектировать проект под себя? Запишитесь на консультацию.
+                        </p>
+                        <a href="/contact" class="cta-button">ОСТАВИТЬ ЗАЯВКУ</a>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <!--            ===========================Таблица с комплектацией================================================-->
+        <title>Комплектации дома</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+
+            .complectation-container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 20px;
+            }
+
+            .complectation-title {
+                text-align: center;
+                margin-bottom: 30px;
+                color: #2c3e50;
+                font-weight: 600;
+            }
+
+            .complectation-table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-bottom: 40px;
+                background: white;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+                border-radius: 8px;
+                overflow: hidden;
+            }
+
+            .complectation-table th {
+                background-color: #2c3e50;
+                color: white;
+                padding: 15px;
+                text-align: center;
+                font-weight: 600;
+                border-right: 1px solid #34495e;
+            }
+
+            .complectation-table th:first-child {
+                text-align: left;
+                background-color: #34495e;
+                width: 50%;
+            }
+
+            .complectation-table th:last-child {
+                border-right: none;
+            }
+
+            .complectation-table td {
+                padding: 15px;
+                border-bottom: 1px solid #e9ecef;
+                border-right: 1px solid #e9ecef;
+                vertical-align: top;
+            }
+
+            .complectation-table td:last-child {
+                border-right: none;
+            }
+
+            .complectation-table tr:last-child td {
+                border-bottom: none;
+            }
+
+            .feature-name {
+                font-weight: 600;
+                margin-bottom: 5px;
+            }
+
+            .feature-details {
+                font-size: 14px;
+                color: #6c757d;
+            }
+
+            .checkmark {
+                color: #27ae60;
+                font-weight: bold;
+                font-size: 18px;
+                text-align: center;
+            }
+
+            .pricing-section {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-top: 40px;
+                padding: 25px;
+                background: white;
+                border-radius: 8px;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+
+            .price-item {
+                flex: 1;
+                min-width: 200px;
+                text-align: center;
+            }
+
+            .price-amount {
+                font-size: 20px;
+                font-weight: 700;
+                color: #2c3e50;
+                margin-bottom: 10px;
+            }
+
+            .price-label {
+                font-size: 14px;
+                color: #6c757d;
+            }
+
+            .fix-price-btn {
+                display: inline-block;
+                background-color: #e74c3c;
+                color: white;
+                padding: 12px 30px;
+                border: none;
+                border-radius: 6px;
+                font-size: 16px;
+                font-weight: 600;
+                cursor: pointer;
+                text-decoration: none;
+                transition: background-color 0.3s;
+                text-align: center;
+            }
+
+            .fix-price-btn:hover {
+                background-color: #c0392b;
+            }
+
+            @media (max-width: 768px) {
+                .complectation-table {
+                    display: block;
+                    overflow-x: auto;
+                }
+
+                .pricing-section {
+                    flex-direction: column;
+                    text-align: center;
+                }
+
+                .price-item {
+                    min-width: 100%;
+                }
+            }
+
+            .note {
+                text-align: center;
+                margin-top: 20px;
+                color: #6c757d;
+                font-size: 14px;
+            }
+        </style>
+
+        <div class="complectation-container">
+            <h1 class="complectation-title">КОМПЛЕКТАЦИИ ДОМА</h1>
+
+            <table class="complectation-table">
+                <thead>
+                <tr>
+                    <th>Характеристики</th>
+                    <th>Теплый контур</th>
+                    <th>Инженерный пакет</th>
+                    <th>Чистовая отделка</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>
+                        <div class="feature-name">железобетонные сваи 25 шт.</div>
+                        <div class="feature-details">пробное бурение.</div>
+                    </td>
+                    <td class="checkmark">✓</td>
+                    <td class="checkmark">✓</td>
+                    <td class="checkmark">✓</td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div class="feature-name">Замена базового кровельного материала на мягкую кровлю Шинглас</div>
+                        <div class="feature-details">Технониколь</div>
+                    </td>
+                    <td class="checkmark">✓</td>
+                    <td class="checkmark">✓</td>
+                    <td class="checkmark">✓</td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div class="feature-name">Замена базового кровельного покрытия на Кликфальц</div>
+                        
+                    </td>
+                    <td class="checkmark">✓</td>
+                    <td class="checkmark">✓</td>
+                    <td class="checkmark">✓</td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div class="feature-name">Водосточная система деке, цвет на выбо</div>
+                        
+                    </td>
+                    <td class="checkmark">✓</td>
+                    <td class="checkmark">✓</td>
+                    <td class="checkmark">✓</td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div class="feature-name">Зашивка цоколя в 1 ряд панелями деке</div>
+                        
+                    </td>
+                    <td class="checkmark">✓</td>
+                    <td class="checkmark">✓</td>
+                    <td class="checkmark">✓</td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div class="feature-name">Антисептирование всего силового каркаса на возведенном доме</div>
+                        
+                    </td>
+                    <td class="checkmark">✓</td>
+                    <td class="checkmark">✓</td>
+                    <td class="checkmark">✓</td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div class="feature-name">Покраска наружной отделки стен и свесов кровли на возведенном доме</div>
+                        
+                    </td>
+                    <td class="checkmark">✓</td>
+                    <td class="checkmark">✓</td>
+                    <td class="checkmark">✓</td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div class="feature-name">Покраска внутренних стен и потолков во всем доме на возведенном доме</div>
+                        
+                    </td>
+                    <td class="checkmark">✓</td>
+                    <td class="checkmark">✓</td>
+                    <td class="checkmark">✓</td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div class="feature-name">Замена на потолке имитации бруса, на натяжной потолок</div>
+                        
+                    </td>
+                    <td class="checkmark">✓</td>
+                    <td class="checkmark">✓</td>
+                    <td class="checkmark">✓</td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div class="feature-name">Ламинат на полы</div>
+                        
+                    </td>
+                    <td class="checkmark">✓</td>
+                    <td class="checkmark">✓</td>
+                    <td class="checkmark">✓</td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div class="feature-name">Замена всех межкомнатных дверей на МДФ двери Тёмного или Светлого цвета, на выбо</div>
+                        
+                    </td>
+                    <td class="checkmark">✓</td>
+                    <td class="checkmark">✓</td>
+                    <td class="checkmark">✓</td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div class="feature-name">30 точек электропроводки</div>
+                        <div class="feature-details">щиток</div>
+                    </td>
+                    <td class="checkmark">✓</td>
+                    <td class="checkmark">✓</td>
+                    <td class="checkmark">✓</td>
+                </tr>
+
+                </tbody>
+            </table>
+
+            <div class="pricing-section">
+                <div class="price-item">
+                    <div class="price-amount">от 11 088 182 руб.</div>
+                    <div class="price-label">Теплый контур</div>
+                </div>
+
+                <div class="price-item">
+                    <div class="price-amount">от 13 550 769 руб.</div>
+                    <div class="price-label">Инженерный пакет</div>
+                </div>
+
+                <div class="price-item">
+                    <div class="price-amount">от 16 837 493 руб.</div>
+                    <div class="price-label">Чистовая отделка</div>
+                </div>
+
+                <a href="/contact" class="fix-price-btn">ЗАФИКСИРОВАТЬ СТОИМОСТЬ</a>
+            </div>
+
+            <p class="note">* Стоимость указана ориентировочно. Точная цена рассчитывается индивидуально после
+                консультации.</p>
+        </div>
+
+
+        <!--        =================================Улучшенный слайдер фото с Swiper.js=================================-->
+        <style>
+            /* Стили для Swiper слайдера */
+            .photo-slider-container {
+                max-width: 1000px;
+                margin: 40px auto;
+                padding: 20px;
+            }
+
+            .swiper {
+                width: 100%;
+                border-radius: 10px;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            }
+
+            .swiper-slide img {
+                width: 100%;
+                height: 500px;
+                object-fit: cover;
+                display: block;
+            }
+
+            /* Кастомные стили для навигации */
+            .swiper-button-next,
+            .swiper-button-prev {
+                color: #fff;
+                background: rgba(0, 0, 0, 0.5);
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+            }
+
+            .swiper-button-next:after,
+            .swiper-button-prev:after {
+                font-size: 20px;
+            }
+
+            .swiper-pagination-bullet {
+                width: 12px;
+                height: 12px;
+                background: #fff;
+                opacity: 0.7;
+            }
+
+            .swiper-pagination-bullet-active {
+                opacity: 1;
+                background: #3498db;
+            }
+
+            /* Адаптивность для мобильных */
+            @media (max-width: 768px) {
+                .swiper-slide img {
+                    height: 350px;
+                }
+
+                .swiper-button-next,
+                .swiper-button-prev {
+                    width: 40px;
+                    height: 40px;
+                }
+
+                .swiper-button-next:after,
+                .swiper-button-prev:after {
+                    font-size: 16px;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .swiper-slide img {
+                    height: 250px;
+                }
+
+                .photo-slider-container {
+                    padding: 15px;
+                }
+            }
+        </style>
+
+        <div class="photo-slider-container">
+            <div class="swiper photoSwiper">
+                <div class="swiper-wrapper">
+                    {% for photo in photos %}
+                    <div class="swiper-slide">
+                        <img src="{{ url_for('static', filename='img/dom24_kark' + photo) }}"
+                             alt="Фото {{ loop.index }}">
+                    </div>
+                    {% endfor %}
+                </div>
+                
+                <!-- Навигация -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                
+                <!-- Пагинация -->
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+
+        <!-- Инициализация Swiper -->
+        <script>
+            // Инициализация Swiper слайдера для фотографий
+            document.addEventListener('DOMContentLoaded', function() {
+                const photoSwiper = new Swiper('.photoSwiper', {
+                    // Параметры слайдера
+                    loop: true,
+                    speed: 600,
+                    spaceBetween: 30,
+                    
+                    // Автопрокрутка
+                    autoplay: {
+                        delay: 4000,
+                        disableOnInteraction: false,
+                    },
+                    
+                    // Навигация
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    },
+                    
+                    // Пагинация
+                    pagination: {
+                        el: '.swiper-pagination',
+                        clickable: true,
+                    },
+                    
+                    // Поддержка касаний
+                    touchRatio: 1,
+                    touchAngle: 45,
+                    grabCursor: true,
+                    
+                    // Эффекты
+                    effect: 'slide',
+                    
+                    // Клавиатура
+                    keyboard: {
+                        enabled: true,
+                        onlyInViewport: true,
+                    },
+                });
+            });
+        </script>
+
+
+        <!--        ==================================================================-->
+
+        <!--    Часть с калькулятором + style-->
+
+
+        <title>Дополнительные услуги</title>
+        <style>
+
+            content {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .calculator {
+                background: white;
+                padding: 30px;
+                border-radius: 10px;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            h1 {
+                color: #333;
+                text-align: center;
+                margin-bottom: 30px;
+            }
+
+            .configuration-section {
+                margin-bottom: 30px;
+                padding: 20px;
+                border: 2px solid #e0e0e0;
+                border-radius: 8px;
+                background: #f9f9f9;
+            }
+
+            .configuration-title {
+                font-size: 1.2em;
+                font-weight: bold;
+                margin-bottom: 15px;
+                color: #333;
+                text-align: center;
+            }
+
+            .configuration-options {
+                display: flex;
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .config-option {
+                flex: 1;
+                min-width: 250px;
+                padding: 20px;
+                border: 2px solid #e0e0e0;
+                border-radius: 8px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                text-align: center;
+                background: white;
+            }
+
+            .config-option:hover {
+                border-color: #2c5aa0;
+                transform: translateY(-2px);
+            }
+
+            .config-option.selected {
+                border-color: #2c5aa0;
+                background-color: #f0f8ff;
+                box-shadow: 0 4px 8px rgba(44, 90, 160, 0.2);
+            }
+
+            .config-name {
+                font-weight: bold;
+                font-size: 1.1em;
+                margin-bottom: 10px;
+                color: #333;
+            }
+
+            .config-description {
+                color: #666;
+                margin-bottom: 10px;
+                font-size: 0.9em;
+            }
+
+            .config-price {
+                color: #2c5aa0;
+                font-weight: bold;
+                font-size: 1.2em;
+            }
+
+            .service-item {
+                margin: 15px 0;
+                padding: 15px;
+                border: 1px solid #e0e0e0;
+                border-radius: 5px;
+                display: flex;
+                align-items: flex-start;
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
+
+            .service-item:hover {
+                background-color: #f9f9f9;
+            }
+
+            .service-checkbox {
+                margin-right: 15px;
+                margin-top: 3px;
+            }
+
+            .service-info {
+                flex-grow: 1;
+            }
+
+            .service-title {
+                font-weight: bold;
+                color: #333;
+                margin-bottom: 5px;
+            }
+
+            .service-description {
+                color: #666;
+                font-size: 0.9em;
+                margin-bottom: 5px;
+            }
+
+            .service-price {
+                color: #2c5aa0;
+                font-weight: bold;
+                font-size: 1.1em;
+            }
+
+            .fixed-total-section {
+                position: fixed;
+                bottom: 20px;
+                width: 800px;
+                background: #f3f3f3;
+                padding: 20px;
+                border-top: 2px solid #e0e0e0;
+                margin-top: 30px;
+                box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .config-summary {
+                font-size: 1.1em;
+            }
+
+            .config-summary-name {
+                font-weight: bold;
+                color: #333;
+            }
+
+            .fixed-total-amount {
+                font-size: 1.8em;
+                font-weight: bold;
+                color: #2c5aa0;
+            }
+
+            .submit-btn {
+                background: #2c5aa0;
+                color: white;
+                border: none;
+                padding: 15px 40px;
+                font-size: 1.1em;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background 0.3s;
+            }
+
+            .submit-btn:hover {
+                background: #1e3d6f;
+            }
+
+            .selected {
+                background-color: #f0f8ff;
+                border-color: #2c5aa0;
+            }
+
+            .price-breakdown {
+                margin-top: 20px;
+                max-height: 200px;
+                overflow-y: auto;
+                text-align: left;
+            }
+
+            .breakdown-item {
+                display: flex;
+                justify-content: space-between;
+                padding: 8px 0;
+                border-bottom: 1px solid #f0f0f0;
+            }
+
+            .breakdown-section {
+                font-weight: bold;
+                margin-top: 10px;
+                color: #333;
+            }
+
+            .note {
+                font-size: 0.8em;
+                color: #666;
+                font-style: italic;
+                margin-top: 5px;
+            }
+
+            .services-title {
+                margin-top: 30px;
+                margin-bottom: 20px;
+                color: #333;
+                border-bottom: 1px solid #e0e0e0;
+                padding-bottom: 10px;
+            }
+
+            /* Адаптивность для мобильных устройств */
+            @media (max-width: 768px) {
+                .fixed-total-section {
+                    width: 100%;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    margin: 0;
+                    padding: 15px 10px;
+                    flex-direction: column;
+                    gap: 10px;
+                }
+
+                .config-summary {
+                    font-size: 0.95em;
+                    text-align: center;
+                    width: 100%;
+                }
+
+                .fixed-total-amount {
+                    font-size: 1.5em;
+                    text-align: center;
+                    width: 100%;
+                }
+
+                .submit-btn {
+                    width: 100%;
+                    padding: 12px 20px;
+                    font-size: 1em;
+                }
+
+                .calculator {
+                    padding: 20px 10px;
+                    margin-bottom: 120px; /* Добавляем отступ снизу для фиксированного блока */
+                }
+
+                .config-option {
+                    min-width: 100%;
+                }
+
+                .service-item {
+                    padding: 10px;
+                }
+            }
+        </style>
+        <div class="calculator">
+            <h1>КАЛЬКУЛЯТОР СТРОИТЕЛЬСТВА ДОМА</h1>
+
+            <!-- СЕКЦИЯ ВЫБОРА КОМПЛЕКТАЦИИ -->
+            <div class="configuration-section">
+                <div class="configuration-title">ВЫБЕРИТЕ КОМПЛЕКТАЦИЮ</div>
+                <div class="configuration-options">
+                    <div class="config-option" data-price="1200000">
+                        <div class="config-name">Сруб из бруса 150x150мм</div>
+                        <div class="config-description">Базовый комплект: коробка дома, кровля</div>
+                        <div class="config-price">1 200 000 ₽</div>
+                    </div>
+
+                    <div class="config-option" data-price="1800000">
+                        <div class="config-name">Дом из бруса 150x150мм</div>
+                        <div class="config-description">Полная комплектация: отделка, окна, двери</div>
+                        <div class="config-price">1 800 000 ₽</div>
+                    </div>
+
+                    <div class="config-option" data-price="2200000">
+                        <div class="config-name">Дом из бруса 200x150мм</div>
+                        <div class="config-description">Премиум: утепление, полная отделка</div>
+                        <div class="config-price">2 200 000 ₽</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ФИКСИРОВАННЫЙ БЛОК С КОМПЛЕКТАЦИЕЙ И ИТОГОМ -->
+            <div class="fixed-total-section">
+                <div class="config-summary">
+                    <span>Комплектация: </span>
+                    <span class="config-summary-name" id="config-summary-name">Дом из бруса 150x150мм</span>
+                </div>
+                <div class="fixed-total-amount" id="fixed-total-display">1 800 000 ₽</div>
+            </div>
+
+            <form id="services-form" method="POST" action="/submit">
+                <input type="hidden" name="total_amount" id="total_amount" value="1800000">
+                <input type="hidden" name="selected_config" id="selected_config" value="Дом из бруса 150x150мм">
+
+                <h2 class="services-title">ДОПОЛНИТЕЛЬНЫЕ УСЛУГИ</h2>
+
+                <div class="services-list">
+                    <div class="service-item" data-price="210000">
+                        <input type="checkbox" name="services" value="железобетонные сваи 25 шт."
+                               class="service-checkbox"
+                               id="service1">
+                        <div class="service-info">
+                            <div class="service-title">железобетонные сваи 25 шт.</div>
+                            <div class="service-description">• пробное бурение.</div>
+                            <div class="service-price">210 000 ₽</div>
+                        </div>
+                    </div>
+
+                    <div class="service-item" data-price="317250">
+                        <input type="checkbox" name="services" value="Замена базового кровельного материала на мягкую кровлю Шинглас"
+                               class="service-checkbox"
+                               id="service2">
+                        <div class="service-info">
+                            <div class="service-title">Замена базового кровельного материала на мягкую кровлю Шинглас</div>
+                            <div class="service-description">• Технониколь</div>
+                            <div class="service-price">317 250 ₽</div>
+                        </div>
+                    </div>
+
+                    <div class="service-item" data-price="533250">
+                        <input type="checkbox" name="services" value="Замена базового кровельного покрытия на Кликфальц"
+                               class="service-checkbox"
+                               id="service3">
+                        <div class="service-info">
+                            <div class="service-title">Замена базового кровельного покрытия на Кликфальц</div>
+                            <div class="service-price">533 250 ₽</div>
+                        </div>
+                    </div>
+
+                    <div class="service-item" data-price="81000">
+                        <input type="checkbox" name="services" value="Водосточная система деке, цвет на выбо"
+                               class="service-checkbox"
+                               id="service4">
+                        <div class="service-info">
+                            <div class="service-title">Водосточная система деке, цвет на выбо</div>
+                            <div class="service-price">81 000 ₽</div>
+                        </div>
+                    </div>
+
+                    <div class="service-item" data-price="102600">
+                        <input type="checkbox" name="services" value="Зашивка цоколя в 1 ряд панелями деке"
+                               class="service-checkbox"
+                               id="service5">
+                        <div class="service-info">
+                            <div class="service-title">Зашивка цоколя в 1 ряд панелями деке</div>
+                            <div class="service-price">102 600 ₽</div>
+                        </div>
+                    </div>
+
+                    <div class="service-item" data-price="84680">
+                        <input type="checkbox" name="services" value="Антисептирование всего силового каркаса на возведенном доме"
+                               class="service-checkbox"
+                               id="service6">
+                        <div class="service-info">
+                            <div class="service-title">Антисептирование всего силового каркаса на возведенном доме</div>
+                            <div class="service-price">84 680 ₽</div>
+                        </div>
+                    </div>
+
+                    <div class="service-item" data-price="263400">
+                        <input type="checkbox" name="services" value="Покраска наружной отделки стен и свесов кровли на возведенном доме"
+                               class="service-checkbox"
+                               id="service7">
+                        <div class="service-info">
+                            <div class="service-title">Покраска наружной отделки стен и свесов кровли на возведенном доме</div>
+                            <div class="service-price">263 400 ₽</div>
+                        </div>
+                    </div>
+
+                    <div class="service-item" data-price="289500">
+                        <input type="checkbox" name="services" value="Покраска внутренних стен и потолков во всем доме на возведенном доме"
+                               class="service-checkbox"
+                               id="service8">
+                        <div class="service-info">
+                            <div class="service-title">Покраска внутренних стен и потолков во всем доме на возведенном доме</div>
+                            <div class="service-price">289 500 ₽</div>
+                        </div>
+                    </div>
+
+                    <div class="service-item" data-price="54000">
+                        <input type="checkbox" name="services" value="Замена на потолке имитации бруса, на натяжной потолок"
+                               class="service-checkbox"
+                               id="service9">
+                        <div class="service-info">
+                            <div class="service-title">Замена на потолке имитации бруса, на натяжной потолок</div>
+                            <div class="service-price">54 000 ₽</div>
+                        </div>
+                    </div>
+
+                    <div class="service-item" data-price="232200">
+                        <input type="checkbox" name="services" value="Ламинат на полы"
+                               class="service-checkbox"
+                               id="service10">
+                        <div class="service-info">
+                            <div class="service-title">Ламинат на полы</div>
+                            <div class="service-price">232 200 ₽</div>
+                        </div>
+                    </div>
+
+                    <div class="service-item" data-price="152000">
+                        <input type="checkbox" name="services" value="Замена всех межкомнатных дверей на МДФ двери Тёмного или Светлого цвета, на выбо"
+                               class="service-checkbox"
+                               id="service11">
+                        <div class="service-info">
+                            <div class="service-title">Замена всех межкомнатных дверей на МДФ двери Тёмного или Светлого цвета, на выбо</div>
+                            <div class="service-price">152 000 ₽</div>
+                        </div>
+                    </div>
+
+                    <div class="service-item" data-price="279000">
+                        <input type="checkbox" name="services" value="30 точек электропроводки"
+                               class="service-checkbox"
+                               id="service12">
+                        <div class="service-info">
+                            <div class="service-title">30 точек электропроводки</div>
+                            <div class="service-description">• щиток</div>
+                            <div class="service-price">279 000 ₽</div>
+                        </div>
+                    </div>
+
+                    <div class="service-item" data-price="153000">
+                        <input type="checkbox" name="services" value="Черновая разводка ГВС, ХВС и канализации по дому"
+                               class="service-checkbox"
+                               id="service13">
+                        <div class="service-info">
+                            <div class="service-title">Черновая разводка ГВС, ХВС и канализации по дому</div>
+                            <div class="service-price">153 000 ₽</div>
+                        </div>
+                    </div>
+
+                    <div class="service-item" data-price="93400">
+                        <input type="checkbox" name="services" value="Отопление электрическими обогревателями"
+                               class="service-checkbox"
+                               id="service14">
+                        <div class="service-info">
+                            <div class="service-title">Отопление электрическими обогревателями</div>
+                            <div class="service-description">• комплект с установкой на весь дом</div>
+                            <div class="service-price">93 400 ₽</div>
+                        </div>
+                    </div>
+
+                    <div class="service-item" data-price="170100">
+                        <input type="checkbox" name="services" value="Отопление дома электрическим теплым полом"
+                               class="service-checkbox"
+                               id="service15">
+                        <div class="service-info">
+                            <div class="service-title">Отопление дома электрическим теплым полом</div>
+                            <div class="service-price">170 100 ₽</div>
+                        </div>
+                    </div>
+
+                    <div class="service-item" data-price="250000">
+                        <input type="checkbox" name="services" value="Автономная канализация. Станция биологической очистки."
+                               class="service-checkbox"
+                               id="service16">
+                        <div class="service-info">
+                            <div class="service-title">Автономная канализация. Станция биологической очистки.</div>
+                            <div class="service-description">• Септик</div>
+                            <div class="service-price">250 000 ₽</div>
+                        </div>
+                    </div>
+
+                    <div class="service-item" data-price="300000">
+                        <input type="checkbox" name="services" value="Фильтрационная система"
+                               class="service-checkbox"
+                               id="service17">
+                        <div class="service-info">
+                            <div class="service-title">Фильтрационная система</div>
+                            <div class="service-description">• стоимость может измениться после анализа воды</div>
+                            <div class="service-price">300 000 ₽</div>
+                        </div>
+                    </div>
+
+                    <div class="service-item" data-price="60000">
+                        <input type="checkbox" name="services" value="Аренда блок-контейнера для проживания бригады, на весь срок строительства"
+                               class="service-checkbox"
+                               id="service18">
+                        <div class="service-info">
+                            <div class="service-title">Аренда блок-контейнера для проживания бригады, на весь срок строительства</div>
+                            <div class="service-price">60 000 ₽</div>
+                        </div>
+                    </div>
+
+                    <div class="service-item" data-price="80000">
+                        <input type="checkbox" name="services" value="Вывоз мусора после строительства"
+                               class="service-checkbox"
+                               id="service19">
+                        <div class="service-info">
+                            <div class="service-title">Вывоз мусора после строительства</div>
+                            <div class="service-description">• 1 Пухто или 2 газели</div>
+                            <div class="service-price">80 000 ₽</div>
+                        </div>
+                    </div>
+
+                    <div class="service-item" data-price="40000">
+                        <input type="checkbox" name="services" value="Регистрация дома."
+                               class="service-checkbox"
+                               id="service20">
+                        <div class="service-info">
+                            <div class="service-title">Регистрация дома.</div>
+                            <div class="service-description">• технический план здания с подачей документов в Росреестр</div>
+                            <div class="service-price">40 000 ₽</div>
+                        </div>
+                    </div>
+
+                    <div class="service-item" data-price="220000">
+                        <input type="checkbox" name="services" value="Заезд на участок шириной до 6м"
+                               class="service-checkbox"
+                               id="service21">
+                        <div class="service-info">
+                            <div class="service-title">Заезд на участок шириной до 6м</div>
+                            <div class="service-description">• для не глубоких канав</div>
+                            <div class="service-price">220 000 ₽</div>
+                        </div>
+                    </div>
+
+                    <div class="service-item" data-price="210000">
+                        <input type="checkbox" name="services" value="Чистовые сантехнические приборы: бойлер, унитаз, раковина, душевая кабина"
+                               class="service-checkbox"
+                               id="service22">
+                        <div class="service-info">
+                            <div class="service-title">Чистовые сантехнические приборы: бойлер, унитаз, раковина, душевая кабина</div>
+                            <div class="service-description">• ы</div>
+                            <div class="service-price">210 000 ₽</div>
+                        </div>
+                    </div>
+
+                    <div class="service-item" data-price="30000">
+                        <input type="checkbox" name="services" value="Незамерзающий кран для полива"
+                               class="service-checkbox"
+                               id="service23">
+                        <div class="service-info">
+                            <div class="service-title">Незамерзающий кран для полива</div>
+                            <div class="service-description">• добавляется к черновой разводке труб</div>
+                            <div class="service-price">30 000 ₽</div>
+                        </div>
+                    </div>
+
+                    <div class="service-item" data-price="60000">
+                        <input type="checkbox" name="services" value="Заземление"
+                               class="service-checkbox"
+                               id="service24">
+                        <div class="service-info">
+                            <div class="service-title">Заземление</div>
+                            <div class="service-description">• комплект с установкой</div>
+                            <div class="service-price">60 000 ₽</div>
+                        </div>
+                    </div>
+
+                    <div class="service-item" data-price="120000">
+                        <input type="checkbox" name="services" value="Подключение света от общего столба к дому в земле до 20 м"
+                               class="service-checkbox"
+                               id="service25">
+                        <div class="service-info">
+                            <div class="service-title">Подключение света от общего столба к дому в земле до 20 м</div>
+                            <div class="service-description">• п.</div>
+                            <div class="service-price">120 000 ₽</div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <button type="button" class="submit-btn" onclick="window.location.href='{{ url_for('contact') }}'">
+                    ОТПРАВИТЬ ЗАЯВКУ
+                </button>
+            </form>
+        </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const configOptions = document.querySelectorAll('.config-option');
+                const checkboxes = document.querySelectorAll('.service-checkbox');
+                const serviceItems = document.querySelectorAll('.service-item');
+                const fixedTotalDisplay = document.getElementById('fixed-total-display');
+                const configSummaryName = document.getElementById('config-summary-name');
+                const totalAmountInput = document.getElementById('total_amount');
+                const selectedConfigInput = document.getElementById('selected_config');
+
+                let selectedConfigPrice = 1800000; // Начальная цена для выбранной по умолчанию комплектации
+                let selectedConfigName = 'Дом из бруса 150x150мм';
+
+                // Функция для форматирования чисел с пробелами
+                function formatNumber(num) {
+                    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+                }
+
+                // Функция для выбора комплектации
+                function selectConfiguration(option) {
+                    // Снимаем выделение со всех вариантов
+                    configOptions.forEach(opt => {
+                        opt.classList.remove('selected');
+                    });
+
+                    // Выделяем выбранный вариант
+                    option.classList.add('selected');
+
+                    // Сохраняем цену и название выбранной комплектации
+                    selectedConfigPrice = parseInt(option.dataset.price);
+                    selectedConfigName = option.querySelector('.config-name').textContent;
+                    selectedConfigInput.value = selectedConfigName;
+
+                    // Обновляем фиксированный блок
+                    updateFixedTotal();
+                }
+
+                // Функция для обновления фиксированного блока
+                function updateFixedTotal() {
+                    let servicesTotal = 0;
+
+                    // Суммируем стоимость выбранных услуг
+                    checkboxes.forEach((checkbox, index) => {
+                        if (checkbox.checked) {
+                            servicesTotal += parseInt(serviceItems[index].dataset.price);
+                        }
+                    });
+
+                    // Общая сумма = стоимость комплектации + услуги
+                    const total = selectedConfigPrice + servicesTotal;
+
+                    // Обновляем отображение
+                    configSummaryName.textContent = selectedConfigName;
+                    fixedTotalDisplay.textContent = formatNumber(total) + ' ₽';
+                    totalAmountInput.value = total;
+
+                    // Обновляем стили выбранных элементов
+                    updateSelectedStyles();
+                }
+
+                // Функция для обновления стилей выбранных элементов
+                function updateSelectedStyles() {
+                    serviceItems.forEach((item, index) => {
+                        if (checkboxes[index].checked) {
+                            item.classList.add('selected');
+                        } else {
+                            item.classList.remove('selected');
+                        }
+                    });
+                }
+
+                // Добавляем обработчики событий для выбора комплектации
+                configOptions.forEach(option => {
+                    option.addEventListener('click', function () {
+                        selectConfiguration(this);
+                    });
+                });
+
+                // Добавляем обработчики событий для чекбоксов
+                checkboxes.forEach(checkbox => {
+                    checkbox.addEventListener('change', updateFixedTotal);
+                });
+
+                // Добавляем обработчики для клика по всему элементу услуги
+                serviceItems.forEach((item, index) => {
+                    item.addEventListener('click', function (e) {
+                        if (e.target !== checkboxes[index]) {
+                            checkboxes[index].checked = !checkboxes[index].checked;
+                            updateFixedTotal();
+                        }
+                    });
+                });
+
+                // Автоматически выбираем вторую комплектацию при загрузке (как на скриншоте)
+                if (configOptions.length > 1) {
+                    selectConfiguration(configOptions[1]);
+                }
+            });
+        </script>
+        {% endblock %}
+</body>
+</content>
+
+
+</html>
