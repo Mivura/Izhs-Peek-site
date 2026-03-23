@@ -338,6 +338,8 @@ header {
     align-items: center;
     padding: 0 8%;
     background-image: url("../img/bg_header.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 header img {
@@ -361,7 +363,7 @@ header ul li a {
     color: #000;
     font-size: 18px;
     display: block;
-    padding: 20px;
+    padding: 14px 20px;
 }
 
 header ul li a:hover {
