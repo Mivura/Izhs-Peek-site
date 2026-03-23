@@ -486,7 +486,7 @@ input:checked ~ label.menu-btn span:nth-child(3) {
 }
 
 .header-contact-item i {
-    color: #3498db;
+    color: #7f8c8d;
     font-size: 12px;
     width: 14px;
     text-align: center;
@@ -494,6 +494,12 @@ input:checked ~ label.menu-btn span:nth-child(3) {
 
 header label.menu-btn {
     display: none;
+}
+
+@media (max-width: 1200px) {
+    .header-contacts {
+        display: none;
+    }
 }
 
 @media (max-width: 991px) {
