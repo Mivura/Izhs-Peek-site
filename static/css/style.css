@@ -321,7 +321,7 @@ content {
 }
 
 .oooo img{
-    height: 65px;
+    height: 85px;
     width: auto;
 }
 
@@ -449,8 +449,9 @@ input[type=checkbox] {
 
 input:checked ~ label.menu-btn span:nth-child(1) {
     transform: rotate(45deg);
-    top: 8px;
-    left: 9px;
+    top: 18px;
+    left: 8px;
+    transform-origin: center center;
 }
 
 input:checked ~ label.menu-btn span:nth-child(2) {
@@ -460,8 +461,9 @@ input:checked ~ label.menu-btn span:nth-child(2) {
 
 input:checked ~ label.menu-btn span:nth-child(3) {
     transform: rotate(-45deg);
-    top: 28px;
-    left: 9px;
+    top: 18px;
+    left: 8px;
+    transform-origin: center center;
 }
 
 /* Header contact info */
@@ -496,12 +498,6 @@ input:checked ~ label.menu-btn span:nth-child(3) {
 
 header label.menu-btn {
     display: none;
-}
-
-@media (max-width: 1200px) {
-    .header-contacts {
-        display: none;
-    }
 }
 
 @media (max-width: 991px) {
