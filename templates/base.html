@@ -22,11 +22,19 @@
     {% block header %}
     <!--    <a href="index.html" class="logo">ООО ПИК</a>-->
     <a href="{{ url_for('home') }}" class="oooo"><img src="{{ url_for('static', filename='img/peak.png') }}"></a>
-    <p>Электронная почта: <a href="mailto:9604889@mail.ru">9604889@mail.ru</a></p>
-    <p>Номер телефона: +7(921)960-48-89</p>
+    <div class="header-contacts">
+        <a href="tel:+79219604889" class="header-contact-item">
+            <i class="fas fa-phone"></i>
+            <span>+7(921)960-48-89</span>
+        </a>
+        <a href="mailto:9604889@mail.ru" class="header-contact-item">
+            <i class="fas fa-envelope"></i>
+            <span>9604889@mail.ru</span>
+        </a>
+    </div>
     <input type="checkbox" name="menu" id="menu">
 
-    <label for="menu" class="menu">
+    <label class="menu-btn" for="menu">
         <span></span>
         <span></span>
         <span></span>
